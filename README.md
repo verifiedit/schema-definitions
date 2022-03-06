@@ -7,7 +7,7 @@ e.g.
 
 ```
 {
-    "$schema": "https://github.com/verifiedit/capture-validate-form-schema/formSchema.json",
+    "$schema": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/formSchema.json",
     "data": {
         "schema": [],
     }
