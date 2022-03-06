@@ -1,0 +1,396 @@
+{
+  "$id": "//https://github.com/verifiedit/capture-validate-form-schema/formSchema",
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "component": {
+                "description": "Vue component to use.",
+                "type": "string",
+                "enum": [
+                  "TextInput",
+                  "MultipleChoiceInput",
+                  "TextareaInput",
+                  "CheckboxInput",
+                  "SignatureInput",
+                  "PhotoInput",
+                  "Markdown"
+                ]
+              },
+              "conditions": {
+                "description": "Define conditions which affect component.",
+                "type": [
+                  "array",
+                  "object"
+                ],
+                "properties": {
+                  "do": {
+                    "description": "What to do when condition is satisfied.",
+                    "type": "string"
+                  },
+                  "on": {
+                    "description": "Name of component to check for condition.",
+                    "type": "string"
+                  },
+                  "when": {
+                    "description": "Value(s) of component to trigger the condition to take affect.",
+                    "type": [
+                      "string",
+                      "array",
+                      "object"
+                    ]
+                  }
+                },
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "do": {
+                      "type": "string"
+                    },
+                    "on": {
+                      "type": "string"
+                    },
+                    "when": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "properties": {
+                              "frequency": {
+                                "type": "array",
+                                "items": {
+                                  "type": "number"
+                                }
+                              }
+                            },
+                            "type": "object"
+                          },
+                          {
+                            "type": "array"
+                          },
+                          {
+                            "type": "object"
+                          }
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "do",
+                    "on",
+                    "when"
+                  ]
+                }
+              },
+              "content": {
+                "description": "Displays the instruction to the user as a question or item label.",
+                "type": "string"
+              },
+              "controlPosition": {
+                "description": "Show control button(s) at the top or on the bottom of the component.",
+                "type": "string",
+                "enum": [
+                  "top",
+                  "bottom"
+                ]
+              },
+              "question": {
+                "description": "Displays the label on other form reports.",
+                "type": "string"
+              },
+              "default": {
+                "description": "Default value of this component.",
+                "type": [
+                  "string",
+                  "number",
+                  "boolean",
+                  "object"
+                ]
+              },
+              "min": {
+                "description": "Minimum length of value allowed.",
+                "type": "number",
+                "minimum": 0
+              },
+              "max": {
+                "description": "Maximum length of value allowed.",
+                "type": "number"
+              },
+              "name": {
+                "type": "string",
+                "description": "Name of the component. This will be the key when form is submitted. Can contain alphanumeric characters, _ and - but must start with an alpha character or _, and be unique within the document.",
+                "pattern": "^[A-Za-z_][A-z0-9_-]*$"
+              },
+              "options": {
+                "description": "List the items that the user can select from.",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "type": [
+                        "string",
+                        "number",
+                        "boolean"
+                      ]
+                    },
+                    "show": {
+                      "type": "boolean",
+                      "enum": [
+                        false,
+                        true
+                      ]
+                    },
+                    "conditions": {
+                      "description": "Define conditions which affect the current option.",
+                      "type": [
+                        "array",
+                        "object"
+                      ],
+                      "properties": {
+                        "do": {
+                          "description": "What to do when condition is satisfied.",
+                          "type": "string"
+                        },
+                        "on": {
+                          "description": "Name of component to check for condition.",
+                          "type": "string"
+                        },
+                        "when": {
+                          "description": "Value(s) of component to trigger the condition to take affect.",
+                          "type": [
+                            "string",
+                            "array",
+                            "object"
+                          ]
+                        }
+                      },
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "do": {
+                            "type": "string"
+                          },
+                          "on": {
+                            "type": "string"
+                          },
+                          "when": {
+                            "type": "array",
+                            "items": {
+                              "anyOf": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "properties": {
+                                    "frequency": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "number"
+                                      }
+                                    }
+                                  },
+                                  "type": "object"
+                                },
+                                {
+                                  "type": "array"
+                                },
+                                {
+                                  "type": "object"
+                                }
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "do",
+                          "on",
+                          "when"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "value"
+                  ]
+                }
+              },
+              "placeholder": {
+                "description": "Placeholder string for HTML input.",
+                "type": "string"
+              },
+              "readonly": {
+                "description": "Is component read only?",
+                "type": "boolean",
+                "enum": [
+                  true,
+                  false
+                ]
+              },
+              "rules": {
+                "description": "Validation rules to apply to the component value. These are required to be valid javascript expressions written as a string.",
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "pattern": "^(?![|]).+[|].+$"
+                }
+              },
+              "show": {
+                "description": "Should the component show or hide by default.",
+                "type": "boolean",
+                "enum": [
+                  true,
+                  false
+                ]
+              },
+              "specialOption": {
+                "description": "If selected should clear other selections.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Set type for HTML form type attribute.",
+                "type": "string",
+                "enum": [
+                  "tel",
+                  "text",
+                  "number"
+                ]
+              }
+            },
+            "if": {
+              "properties": {
+                "component": {
+                  "const": "TextInput"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "component",
+                "name",
+                "placeholder",
+                "readonly",
+                "show",
+                "type"
+              ]
+            },
+            "else": {
+              "if": {
+                "properties": {
+                  "component": {
+                    "const": "TextareaInput"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "component",
+                  "name",
+                  "placeholder",
+                  "readonly",
+                  "show"
+                ]
+              },
+              "else": {
+                "if": {
+                  "properties": {
+                    "component": {
+                      "const": "MultipleChoiceInput"
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "component",
+                    "name",
+                    "content",
+                    "options",
+                    "readonly",
+                    "show"
+                  ]
+                },
+                "else": {
+                  "if": {
+                    "properties": {
+                      "component": {
+                        "const": "CheckboxInput"
+                      }
+                    }
+                  },
+                  "then": {
+                    "required": [
+                      "component",
+                      "name",
+                      "content",
+                      "options",
+                      "show"
+                    ]
+                  },
+                  "else": {
+                    "if": {
+                      "properties": {
+                        "component": {
+                          "const": "PhotoInput"
+                        }
+                      }
+                    },
+                    "then": {
+                      "required": [
+                        "component",
+                        "name",
+                        "content",
+                        "min",
+                        "max",
+                        "controlPosition",
+                        "show"
+                      ]
+                    },
+                    "else": {
+                      "if": {
+                        "properties": {
+                          "component": {
+                            "const": "Markdown"
+                          }
+                        }
+                      },
+                      "then": {
+                        "required": [
+                          "component",
+                          "name",
+                          "content",
+                          "show"
+                        ]
+                      },
+                      "else": {
+                        "required": [
+                          "component",
+                          "name",
+                          "controlPosition",
+                          "show"
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
