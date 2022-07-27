@@ -1,0 +1,251 @@
+{
+  "$id": "https://github.com/verifiedit/capture-validate-form-schema/main/induction-form",
+  "$schema": "http://json-schema.org/schema",
+  "type": "object",
+  "properties": {
+    "data": {
+      "type": "object",
+      "properties": {
+        "schema": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "component": {
+                "description": "Name of component",
+                "$ref": "https://github.com/verifiedit/capture-validate-form-schema/blob/main/induction-specific-properties/component.json"
+              },
+              "conditions": {
+                "description": "Define conditions which affect component.",
+                "$ref": "https://github.com/verifiedit/capture-validate-form-schema/blob/main/properties/conditions.json"
+              },
+              "content": {
+                "description": "Displays the instruction to the user as a question or item label.",
+                "type": "string"
+              },
+              "controlPosition": {
+                "description": "Show control button(s) at the top or on the bottom of the component.",
+                "$ref": "https://github.com/verifiedit/capture-validate-form-schema/blob/main/induction-specific-properties/control-position.json"
+              },
+              "download": {
+                "description": "Show or not show the download button(s).",
+                "$ref": "https://github.com/verifiedit/capture-validate-form-schema/blob/main/induction-specific-properties/download.json"
+              },
+              "question": {
+                "description": "Displays the label on other form reports.",
+                "type": "string"
+              },
+              "default": {
+                "description": "Default value of this component.",
+                "$ref": "https://github.com/verifiedit/capture-validate-form-schema/blob/main/properties/default.json"
+              },
+              "parent": {
+                "description": "Reference to the parent component, it is a simple identity for grouping multiple components as a group.",
+                "type": "string"
+              },
+              "min": {
+                "description": "Minimum length of value allowed.",
+                "type": "number",
+                "minimum": 0
+              },
+              "max": {
+                "description": "Maximum length of value allowed.",
+                "type": "number"
+              },
+              "name": {
+                "description": "Name of the component. This will be the key when form is submitted. Can contain alphanumeric characters, _ and - but must start with an alpha character or _, and be unique within the document.",
+                "$ref": "https://github.com/verifiedit/capture-validate-form-schema/blob/main/properties/name.json"
+              },
+              "options": {
+                "description": "List the items that the user can select from.",
+                "$ref": "https://github.com/verifiedit/capture-validate-form-schema/blob/main/properties/options.json"
+              },
+              "placeholder": {
+                "description": "Placeholder string for HTML input.",
+                "type": "string"
+              },
+              "readonly": {
+                "description": "Is component read only?",
+                "$ref": "https://github.com/verifiedit/capture-validate-form-schema/blob/main/properties/readonly.json"
+              },
+              "rules": {
+                "description": "Validation rules to apply to the component value. These are required to be valid javascript expressions written as a string.",
+                "$ref": "https://github.com/verifiedit/capture-validate-form-schema/blob/main/properties/rules.json"
+              },
+              "show": {
+                "description": "Should the component show or hide by default.",
+                "$ref": "https://github.com/verifiedit/capture-validate-form-schema/blob/main/properties/show.json"
+              },
+              "specialOption": {
+                "description": "If selected should clear other selections.",
+                "type": "string"
+              },
+              "source": {
+                "description": "Can be the file path or base64 object string.",
+                "type": "string"
+              },
+              "type": {
+                "description": "Set type for HTML form type attribute.",
+                "$ref": "https://github.com/verifiedit/capture-validate-form-schema/blob/main/properties/type.json"
+              }
+            },
+            "if": {
+              "properties": {
+                "component": {
+                  "const": "TextInput"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "component",
+                "name",
+                "placeholder",
+                "readonly",
+                "show",
+                "type"
+              ]
+            },
+            "else": {
+              "if": {
+                "properties": {
+                  "component": {
+                    "const": "TextareaInput"
+                  }
+                }
+              },
+              "then": {
+                "required": [
+                  "component",
+                  "name",
+                  "placeholder",
+                  "readonly",
+                  "show"
+                ]
+              },
+              "else": {
+                "if": {
+                  "properties": {
+                    "component": {
+                      "const": "MultipleChoiceInput"
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "component",
+                    "name",
+                    "content",
+                    "options",
+                    "readonly",
+                    "show"
+                  ]
+                },
+                "else": {
+                  "if": {
+                    "properties": {
+                      "component": {
+                        "const": "CheckboxInput"
+                      }
+                    }
+                  },
+                  "then": {
+                    "required": [
+                      "component",
+                      "name",
+                      "content",
+                      "options",
+                      "show"
+                    ]
+                  },
+                  "else": {
+                    "if": {
+                      "properties": {
+                        "component": {
+                          "const": "PhotoInput"
+                        }
+                      }
+                    },
+                    "then": {
+                      "required": [
+                        "component",
+                        "name",
+                        "content",
+                        "min",
+                        "max",
+                        "controlPosition",
+                        "show"
+                      ]
+                    },
+                    "else": {
+                      "if": {
+                        "properties": {
+                          "component": {
+                            "const": "Markdown"
+                          }
+                        }
+                      },
+                      "then": {
+                        "required": [
+                          "component",
+                          "name",
+                          "content",
+                          "show"
+                        ]
+                      },
+                      "else": {
+                        "if": {
+                          "properties": {
+                            "component": {
+                              "const": "File"
+                            }
+                          }
+
+                        },
+                        "then": {
+                          "required": [
+                            "component",
+                            "name",
+                            "downloadable",
+                            "show",
+                            "source"
+                          ]
+                        },
+                        "else": {
+                          "if": {
+                            "properties": {
+                              "component": {
+                                "const": "LinkList"
+                              }
+                            }
+                          },
+                          "then": {
+                            "required": [
+                              "component",
+                              "name",
+                              "downloadable",
+                              "show",
+                              "source"
+                            ]
+                          },
+                          "else": {
+                            "required": [
+                              "component",
+                              "name",
+                              "controlPosition",
+                              "show"
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

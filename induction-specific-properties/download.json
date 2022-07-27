@@ -1,0 +1,11 @@
+{
+    "$id": "https://github.com/verifiedit/capture-validate-form-schema/induction-specific-properties/download",
+    "$schema": "http://json-schema.org/schema",
+    "title": "Form download property details",
+    "description": "show or not show download button",
+    "type": "boolean",
+    "enum": [
+        true,
+        false
+    ]
+}
