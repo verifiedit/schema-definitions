@@ -1,0 +1,11 @@
+{
+    "$id": "https://github.com/verifiedit/capture-validate-form-schema/showSchema",
+    "$schema": "http://json-schema.org/schema",
+    "title": "Form show property details",
+    "description": "Should the component show or hide by default.",
+    "type": "boolean",
+    "enum": [
+        true,
+        false
+    ]
+}

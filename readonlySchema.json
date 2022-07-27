@@ -1,0 +1,11 @@
+{
+    "$id": "https://github.com/verifiedit/capture-validate-form-schema/readonlySchema",
+    "$schema": "http://json-schema.org/schema",
+    "title": "Form readonly property details",
+    "description": "Is component read only?",
+    "type": "boolean",
+    "enum": [
+        true,
+        false
+    ]
+}

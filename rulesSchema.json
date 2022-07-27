@@ -1,0 +1,11 @@
+{
+    "$id": "https://github.com/verifiedit/capture-validate-form-schema/rulesSchema",
+    "$schema": "http://json-schema.org/schema",
+    "title": "Form rules property details",
+    "description": "Validation rules to apply to the component value. These are required to be valid javascript expressions written as a string.",
+    "type": "array",
+    "items": {
+        "type": "string",
+        "pattern": "^(?![|]).+[|].+$"
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "$id": "https://github.com/verifiedit/capture-validate-form-schema/componentSchema",
+    "$schema": "http://json-schema.org/schema",
+    "title": "Form component property details",
+    "description": "Name of component object",
+    "type": ["object", "string"],
+    "oneOf": [{
+        "enum": [
+            "TextInput",
+            "MultipleChoiceInput",
+            "TextareaInput",
+            "CheckboxInput",
+            "SignatureInput",
+            "PhotoInput",
+            "Markdown"
+        ]
+    }]
+}

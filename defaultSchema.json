@@ -1,0 +1,12 @@
+{
+    "$id": "https://github.com/verifiedit/capture-validate-form-schema/defaultSchema",
+    "$schema": "http://json-schema.org/schema",
+    "title": "Form default property details",
+    "description": "Default value of this component.",
+    "type": [
+        "string",
+        "number",
+        "boolean",
+        "object"
+    ]
+}
