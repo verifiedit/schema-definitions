@@ -1,0 +1,67 @@
+{
+    "$id": "https://github.com/verifiedit/capture-validate-form-schema/properties/conditions",
+    "$schema": "http://json-schema.org/schema",
+    "title": "Form conditions property details",
+    "description": "set conditions on updating component behavior",
+    "type": ["object", "array"],
+    "properties": {
+        "do": {
+            "description": "What to do when condition is satisfied.",
+            "type": "string"
+        },
+        "on": {
+            "description": "Name of component to check for condition.",
+            "type": "string"
+        },
+        "when": {
+            "description": "Value(s) of component to trigger the condition to take affect.",
+            "type": [
+                "string",
+                "array",
+                "object"
+            ]
+        }
+    },
+    "items": {
+        "type": "object",
+        "properties": {
+            "do": {
+                "type": "string"
+            },
+            "on": {
+                "type": "string"
+            },
+            "when": {
+                "type": "array",
+                "items": {
+                    "anyOf": [{
+                            "type": "string"
+                        },
+                        {
+                            "properties": {
+                                "frequency": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "number"
+                                    }
+                                }
+                            },
+                            "type": "object"
+                        },
+                        {
+                            "type": "array"
+                        },
+                        {
+                            "type": "object"
+                        }
+                    ]
+                }
+            }
+        },
+        "required": [
+            "do",
+            "on",
+            "when"
+        ]
+    }
+}

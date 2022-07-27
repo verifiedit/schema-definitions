@@ -1,0 +1,100 @@
+{
+    "$id": "https://github.com/verifiedit/capture-validate-form-schema/properties/options",
+    "$schema": "http://json-schema.org/schema",
+    "title": "Form options property details",
+    "description": "List the items that the user can select from.",
+    "type": "array",
+    "items": {
+        "type": "object",
+        "properties": {
+            "label": {
+                "type": "string"
+            },
+            "value": {
+                "type": [
+                    "string",
+                    "number",
+                    "boolean"
+                ]
+            },
+            "show": {
+                "type": "boolean",
+                "enum": [
+                    false,
+                    true
+                ]
+            },
+            "conditions": {
+                "description": "Define conditions which affect the current option.",
+                "type": [
+                    "array",
+                    "object"
+                ],
+                "properties": {
+                    "do": {
+                        "description": "What to do when condition is satisfied.",
+                        "type": "string"
+                    },
+                    "on": {
+                        "description": "Name of component to check for condition.",
+                        "type": "string"
+                    },
+                    "when": {
+                        "description": "Value(s) of component to trigger the condition to take affect.",
+                        "type": [
+                            "string",
+                            "array",
+                            "object"
+                        ]
+                    }
+                },
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "do": {
+                            "type": "string"
+                        },
+                        "on": {
+                            "type": "string"
+                        },
+                        "when": {
+                            "type": "array",
+                            "items": {
+                                "anyOf": [{
+                                        "type": "string"
+                                    },
+                                    {
+                                        "properties": {
+                                            "frequency": {
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "number"
+                                                }
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    {
+                                        "type": "array"
+                                    },
+                                    {
+                                        "type": "object"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "required": [
+                        "do",
+                        "on",
+                        "when"
+                    ]
+                }
+            }
+        }
+    },
+    "required": [
+        "label",
+        "value"
+    ]
+}
