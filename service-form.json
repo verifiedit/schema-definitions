@@ -35,6 +35,10 @@
                 "description": "Default value of this component.",
                 "$ref": "https://github.com/verifiedit/capture-validate-form-schema/properties/default.json"
               },
+              "parent": {
+                "description": "Reference to the parent component, it is a simple identity for grouping multiple components as a group.",
+                "type": "string"
+              },
               "min": {
                 "description": "Minimum length of value allowed.",
                 "type": "number",
