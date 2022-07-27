@@ -1,5 +1,5 @@
 {
-    "$id": "https://github.com/verifiedit/capture-validate-form-schema/nameSchema",
+    "$id": "https://github.com/verifiedit/capture-validate-form-schema/properties/name",
     "$schema": "http://json-schema.org/schema",
     "title": "Form name property details",
     "type": "string",

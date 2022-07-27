@@ -1,5 +1,5 @@
 {
-    "$id": "https://github.com/verifiedit/capture-validate-form-schema/conditionsSchema",
+    "$id": "https://github.com/verifiedit/capture-validate-form-schema/properties/conditions",
     "$schema": "http://json-schema.org/schema",
     "title": "Form conditions property details",
     "description": "set conditions on updating component behavior",

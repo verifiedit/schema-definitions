@@ -1,5 +1,5 @@
 {
-    "$id": "https://github.com/verifiedit/capture-validate-form-schema/controlPositionSchema",
+    "$id": "https://github.com/verifiedit/capture-validate-form-schema/properties/control-position",
     "$schema": "http://json-schema.org/schema",
     "title": "Form controlPosition property details",
     "description": "Show control button(s) at the top or on the bottom of the component.",

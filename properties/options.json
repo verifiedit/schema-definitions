@@ -1,5 +1,5 @@
 {
-    "$id": "https://github.com/verifiedit/capture-validate-form-schema/optionsSchema",
+    "$id": "https://github.com/verifiedit/capture-validate-form-schema/properties/options",
     "$schema": "http://json-schema.org/schema",
     "title": "Form options property details",
     "description": "List the items that the user can select from.",

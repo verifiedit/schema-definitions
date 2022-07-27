@@ -1,5 +1,5 @@
 {
-    "$id": "https://github.com/verifiedit/capture-validate-form-schema/typeSchema",
+    "$id": "https://github.com/verifiedit/capture-validate-form-schema/properties/type",
     "$schema": "http://json-schema.org/schema",
     "title": "Form type property details",
     "description": "Set type for HTML form type attribute.",
