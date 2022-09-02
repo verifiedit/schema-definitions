@@ -13,20 +13,26 @@
             "properties": {
               "component": {
                 "description": "Name of component object",
-                "type": ["object", "string"],
-                "oneOf": [{
-                  "enum": [
-                    "File",
-                    "LinkList",
-                    "TextInput",
-                    "MultipleChoiceInput",
-                    "TextareaInput",
-                    "CheckboxInput",
-                    "SignatureInput",
-                    "PhotoInput",
-                    "Markdown"
-                  ]
-                }]
+                "type": [
+                  "object",
+                  "string"
+                ],
+                "oneOf": [
+                  {
+                    "enum": [
+                      "AlertBanner",
+                      "ChoiceInput",
+                      "Heading",
+                      "FileLink",
+                      "MultipleChoiceInput",
+                      "PhotoInput",
+                      "SignatureInput",
+                      "Text",
+                      "TextInput",
+                      "Viewer"
+                    ]
+                  }
+                ]
               },
               "conditions": {
                 "description": "Define conditions which affect component.",
@@ -89,15 +95,62 @@
                 "description": "If selected should clear other selections.",
                 "type": "string"
               },
-              "source": {
+              "type": {
+                "description": "If selected should clear other selections.",
+                "type": "string",
+                "enum": [
+                  "number",
+                  "tel",
+                  "text"
+                ]
+              },
+              "resource": {
                 "description": "Can be the file path or base64 object string.",
                 "type": "string"
-              },
-              "type": {
-                "description": "Set type for HTML form type attribute.",
-                "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/type.json"
               }
             },
+            "anyOf": [
+              {
+                "if": {
+                  "properties": {
+                    "component": {
+                      "const": "AlertBanner"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "type": {
+                      "style": [
+                        "danger",
+                        "information",
+                        "success",
+                        "warning"
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "component": {
+                      "const": "TextInput"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "style": {
+                      "enum": [
+                        "multiple-lines",
+                        "single-line"
+                      ]
+                    }
+                  }
+                }
+              }
+            ],
             "if": {
               "properties": {
                 "component": {
@@ -111,15 +164,14 @@
                 "name",
                 "placeholder",
                 "readonly",
-                "show",
-                "type"
+                "show"
               ]
             },
             "else": {
               "if": {
                 "properties": {
                   "component": {
-                    "const": "TextareaInput"
+                    "const": "MultipleChoiceInput"
                   }
                 }
               },
@@ -127,7 +179,8 @@
                 "required": [
                   "component",
                   "name",
-                  "placeholder",
+                  "content",
+                  "options",
                   "readonly",
                   "show"
                 ]
@@ -136,7 +189,7 @@
                 "if": {
                   "properties": {
                     "component": {
-                      "const": "MultipleChoiceInput"
+                      "const": "ChoiceInput"
                     }
                   }
                 },
@@ -154,7 +207,7 @@
                   "if": {
                     "properties": {
                       "component": {
-                        "const": "CheckboxInput"
+                        "const": "PhotoInput"
                       }
                     }
                   },
@@ -163,7 +216,9 @@
                       "component",
                       "name",
                       "content",
-                      "options",
+                      "min",
+                      "max",
+                      "controlPosition",
                       "show"
                     ]
                   },
@@ -171,26 +226,24 @@
                     "if": {
                       "properties": {
                         "component": {
-                          "const": "PhotoInput"
+                          "const": "Heading"
                         }
                       }
                     },
                     "then": {
                       "required": [
                         "component",
-                        "name",
                         "content",
-                        "min",
-                        "max",
-                        "controlPosition",
-                        "show"
+                        "name",
+                        "show",
+                        "style"
                       ]
                     },
                     "else": {
                       "if": {
                         "properties": {
                           "component": {
-                            "const": "Markdown"
+                            "const": "FileLink"
                           }
                         }
                       },
@@ -198,41 +251,40 @@
                         "required": [
                           "component",
                           "name",
-                          "content",
-                          "show"
+                          "show",
+                          "resource"
                         ]
                       },
                       "else": {
                         "if": {
                           "properties": {
                             "component": {
-                              "const": "File"
+                              "const": "Viewer"
                             }
                           }
-
                         },
                         "then": {
                           "required": [
                             "component",
                             "name",
                             "show",
-                            "source"
+                            "resource"
                           ]
                         },
                         "else": {
                           "if": {
                             "properties": {
                               "component": {
-                                "const": "LinkList"
+                                "const": "Text"
                               }
                             }
                           },
                           "then": {
                             "required": [
                               "component",
+                              "content",
                               "name",
-                              "show",
-                              "source"
+                              "show"
                             ]
                           },
                           "else": {
