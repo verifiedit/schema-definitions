@@ -24,7 +24,9 @@
                       "ChoiceInput",
                       "Heading",
                       "FileLink",
+                      "KmartSiteInformation",
                       "MultipleChoiceInput",
+                      "NumberInput",
                       "PhotoInput",
                       "SignatureInput",
                       "Text",
@@ -120,8 +122,8 @@
                 },
                 "then": {
                   "properties": {
-                    "type": {
-                      "style": [
+                    "style": {
+                      "enum": [
                         "danger",
                         "information",
                         "success",
@@ -288,12 +290,47 @@
                             ]
                           },
                           "else": {
-                            "required": [
-                              "component",
-                              "name",
-                              "controlPosition",
-                              "show"
-                            ]
+                            "if": {
+                              "properties": {
+                                "component": {
+                                  "const": "NumberInput"
+                                }
+                              }
+                            },
+                            "then": {
+                              "required": [
+                                "component",
+                                "content",
+                                "name",
+                                "show"
+                              ]
+                            },
+                            "else": {
+                              "if": {
+                                "properties": {
+                                  "component": {
+                                    "const": "KmartSiteInformation"
+                                  }
+                                }
+                              },
+                              "then": {
+                                "required": [
+                                  "component",
+                                  "content",
+                                  "name",
+                                  "resource",
+                                  "show"
+                                ]
+                              },
+                              "else": {
+                                "required": [
+                                  "component",
+                                  "name",
+                                  "controlPosition",
+                                  "show"
+                                ]
+                              }
+                            }
                           }
                         }
                       }
