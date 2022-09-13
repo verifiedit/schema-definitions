@@ -36,6 +36,10 @@
                   }
                 ]
               },
+              "Supplementals": {
+                "description": "Separated independent inner form.",
+                "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties//supplemental-form.json"
+              },
               "conditions": {
                 "description": "Define conditions which affect component.",
                 "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/conditions.json"
@@ -155,25 +159,22 @@
             ],
             "if": {
               "properties": {
+                "Supplementals": {
+                  "type": "array"
+                },
                 "component": {
-                  "const": "TextInput"
+                  "const": "null"
                 }
               }
             },
             "then": {
-              "required": [
-                "component",
-                "name",
-                "placeholder",
-                "readonly",
-                "show"
-              ]
+              "required": []
             },
             "else": {
               "if": {
                 "properties": {
                   "component": {
-                    "const": "MultipleChoiceInput"
+                    "const": "TextInput"
                   }
                 }
               },
@@ -181,8 +182,7 @@
                 "required": [
                   "component",
                   "name",
-                  "content",
-                  "options",
+                  "placeholder",
                   "readonly",
                   "show"
                 ]
@@ -191,7 +191,7 @@
                 "if": {
                   "properties": {
                     "component": {
-                      "const": "ChoiceInput"
+                      "const": "MultipleChoiceInput"
                     }
                   }
                 },
@@ -209,7 +209,7 @@
                   "if": {
                     "properties": {
                       "component": {
-                        "const": "PhotoInput"
+                        "const": "ChoiceInput"
                       }
                     }
                   },
@@ -218,9 +218,8 @@
                       "component",
                       "name",
                       "content",
-                      "min",
-                      "max",
-                      "controlPosition",
+                      "options",
+                      "readonly",
                       "show"
                     ]
                   },
@@ -228,40 +227,43 @@
                     "if": {
                       "properties": {
                         "component": {
-                          "const": "Heading"
+                          "const": "PhotoInput"
                         }
                       }
                     },
                     "then": {
                       "required": [
                         "component",
-                        "content",
                         "name",
-                        "show",
-                        "style"
+                        "content",
+                        "min",
+                        "max",
+                        "controlPosition",
+                        "show"
                       ]
                     },
                     "else": {
                       "if": {
                         "properties": {
                           "component": {
-                            "const": "FileLink"
+                            "const": "Heading"
                           }
                         }
                       },
                       "then": {
                         "required": [
                           "component",
+                          "content",
                           "name",
                           "show",
-                          "resource"
+                          "style"
                         ]
                       },
                       "else": {
                         "if": {
                           "properties": {
                             "component": {
-                              "const": "Viewer"
+                              "const": "FileLink"
                             }
                           }
                         },
@@ -277,23 +279,23 @@
                           "if": {
                             "properties": {
                               "component": {
-                                "const": "Text"
+                                "const": "Viewer"
                               }
                             }
                           },
                           "then": {
                             "required": [
                               "component",
-                              "content",
                               "name",
-                              "show"
+                              "show",
+                              "resource"
                             ]
                           },
                           "else": {
                             "if": {
                               "properties": {
                                 "component": {
-                                  "const": "NumberInput"
+                                  "const": "Text"
                                 }
                               }
                             },
@@ -309,7 +311,7 @@
                               "if": {
                                 "properties": {
                                   "component": {
-                                    "const": "KmartSiteInformation"
+                                    "const": "NumberInput"
                                   }
                                 }
                               },
@@ -318,17 +320,51 @@
                                   "component",
                                   "content",
                                   "name",
-                                  "resource",
                                   "show"
                                 ]
                               },
                               "else": {
-                                "required": [
-                                  "component",
-                                  "name",
-                                  "controlPosition",
-                                  "show"
-                                ]
+                                "if": {
+                                  "properties": {
+                                    "component": {
+                                      "const": "KmartSiteInformation"
+                                    }
+                                  }
+                                },
+                                "then": {
+                                  "required": [
+                                    "component",
+                                    "content",
+                                    "name",
+                                    "resource",
+                                    "show"
+                                  ]
+                                },
+                                "else": {
+                                  "if": {
+                                    "properties": {
+                                      "component": {
+                                        "const": "SignatureInput"
+                                      }
+                                    }
+                                  },
+                                  "then": {
+                                    "required": [
+                                      "component",
+                                      "name",
+                                      "controlPosition",
+                                      "show"
+                                    ]
+                                  },
+                                  "else": {
+                                    "required": [
+                                      "component",
+                                      "name",
+                                      "controlPosition",
+                                      "show"
+                                    ]
+                                  }
+                                }
                               }
                             }
                           }
