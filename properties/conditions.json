@@ -3,7 +3,7 @@
     "$schema": "http://json-schema.org/schema",
     "title": "Form conditions property details",
     "description": "set conditions on updating component behavior",
-    "type": ["object", "array"],
+    "type": ["array","object"],
     "properties": {
         "do": {
             "description": "What to do when condition is satisfied.",

@@ -49,7 +49,7 @@
           "schema": {
             "type": "array",
             "items": {
-              "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties//component-only.json"
+              "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/component-only.json"
             }
           }
         },
