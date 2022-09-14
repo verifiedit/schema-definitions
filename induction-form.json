@@ -36,7 +36,7 @@
                   }
                 ]
               },
-              "Supplementals": {
+              "supplementals": {
                 "description": "Separated independent inner form.",
                 "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties//supplemental-form.json"
               },
@@ -159,7 +159,7 @@
             ],
             "if": {
               "properties": {
-                "Supplementals": {
+                "supplementals": {
                   "type": "array"
                 },
                 "component": {

@@ -71,7 +71,6 @@
       "$schema",
       "after",
       "data",
-      "conditions",
       "title"
     ]
   },

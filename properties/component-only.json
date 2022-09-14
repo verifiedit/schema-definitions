@@ -16,7 +16,6 @@
             "ChoiceInput",
             "Heading",
             "FileLink",
-            "KmartSiteInformation",
             "MultipleChoiceInput",
             "NumberInput",
             "PhotoInput",
@@ -301,43 +300,25 @@
                     "if": {
                       "properties": {
                         "component": {
-                          "const": "KmartSiteInformation"
+                          "const": "SignatureInput"
                         }
                       }
                     },
                     "then": {
                       "required": [
                         "component",
-                        "content",
                         "name",
-                        "resource",
+                        "controlPosition",
                         "show"
                       ]
                     },
                     "else": {
-                      "if": {
-                        "properties": {
-                          "component": {
-                            "const": "SignatureInput"
-                          }
-                        }
-                      },
-                      "then": {
-                        "required": [
-                          "component",
-                          "name",
-                          "controlPosition",
-                          "show"
-                        ]
-                      },
-                      "else": {
-                        "required": [
-                          "component",
-                          "name",
-                          "controlPosition",
-                          "show"
-                        ]
-                      }
+                      "required": [
+                        "component",
+                        "name",
+                        "controlPosition",
+                        "show"
+                      ]
                     }
                   }
                 }
