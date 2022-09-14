@@ -11,7 +11,13 @@
         "type": "string"
       },
       "after": {
-        "type": "string"
+        "type": "string",
+        "enum": [
+          "AfterInductionSupplemental",
+          "AfterNoticeSupplemental",
+          "AfterServiceSupplemental",
+          "AfterWorkOrderSupplemental"
+        ]
       },
       "conditions": {
         "type": "array",
