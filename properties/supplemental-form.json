@@ -1,0 +1,78 @@
+{
+  "$id": "supplemental-form",
+  "$schema": "http://json-schema.org/schema",
+  "title": "Supplemental form rules property details",
+  "description": "property names to apply to the sub-form.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "$schema": {
+        "type": "string"
+      },
+      "after": {
+        "type": "string"
+      },
+      "conditions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "do": {
+              "type": "string"
+            },
+            "on": {
+              "type": "string"
+            },
+            "when": {
+              "type": "array"
+            }
+          },
+          "required": [
+            "do",
+            "on",
+            "when"
+          ]
+        }
+      },
+      "data": {
+        "type": "object",
+        "items": {
+          "type": "array",
+          "properties": {
+            "schema": {
+              "type": "array"
+            }
+          }
+        },
+        "properties": {
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/component-only.json"
+            }
+          }
+        },
+        "required": [
+          "schema"
+        ]
+      },
+      "name": {
+        "type": "string"
+      },
+      "show": {
+        "type": "boolean"
+      },
+      "title": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "$schema",
+      "after",
+      "data",
+      "title"
+    ]
+  },
+  "additionalProperties": false
+}
