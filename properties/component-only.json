@@ -16,6 +16,7 @@
             "ChoiceInput",
             "Heading",
             "FileLink",
+            "Markdown",
             "MultipleChoiceInput",
             "NumberInput",
             "PhotoInput",
@@ -128,6 +129,26 @@
       "if": {
         "properties": {
           "component": {
+            "const": "ChoiceInput"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "style": {
+            "enum": [
+              "button",
+              "checkbox",
+              "radio"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "component": {
             "const": "TextInput"
           }
         }
@@ -193,7 +214,8 @@
           "content",
           "options",
           "readonly",
-          "show"
+          "show",
+          "style"
         ]
       },
       "else": {
@@ -313,12 +335,29 @@
                       ]
                     },
                     "else": {
-                      "required": [
-                        "component",
-                        "name",
-                        "controlPosition",
-                        "show"
-                      ]
+                      "if": {
+                        "properties": {
+                          "component": {
+                            "const": "Markdown"
+                          }
+                        }
+                      },
+                      "then": {
+                        "required": [
+                          "component",
+                          "content",
+                          "name",
+                          "show"
+                        ]
+                      },
+                      "else": {
+                        "required": [
+                          "component",
+                          "name",
+                          "controlPosition",
+                          "show"
+                        ]
+                      }
                     }
                   }
                 }
