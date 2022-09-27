@@ -26,7 +26,7 @@
                       "FileLink",
                       "KmartSiteInformation",
                       "Markdown",
-                      "MultipleChoiceInput",
+                      "MultiChoiceInput",
                       "NumberInput",
                       "PhotoInput",
                       "SignatureInput",
@@ -63,6 +63,10 @@
               },
               "parent": {
                 "description": "Reference to the parent component, it is a simple identity for grouping multiple components as a group.",
+                "type": "string"
+              },
+              "label": {
+                "description": "Caption for the current object",
                 "type": "string"
               },
               "min": {
@@ -212,7 +216,7 @@
                 "if": {
                   "properties": {
                     "component": {
-                      "const": "MultipleChoiceInput"
+                      "const": "MultiChoiceInput"
                     }
                   }
                 },
@@ -220,7 +224,7 @@
                   "required": [
                     "component",
                     "name",
-                    "content",
+                    "label",
                     "options",
                     "readonly",
                     "show"
@@ -238,7 +242,7 @@
                     "required": [
                       "component",
                       "name",
-                      "content",
+                      "label",
                       "options",
                       "readonly",
                       "show",

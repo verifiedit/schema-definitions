@@ -24,6 +24,15 @@
                     true
                 ]
             },
+            "colour": {
+              "description": "define text colour of the current option.",
+              "type": "string",
+              "enum": [
+                "blue",
+                "green",
+                "red"
+              ]
+            },
             "conditions": {
                 "description": "Define conditions which affect the current option.",
                 "type": [
@@ -94,6 +103,7 @@
         }
     },
     "required": [
+        "colour",
         "label",
         "value"
     ]
