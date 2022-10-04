@@ -131,7 +131,7 @@
                 },
                 "then": {
                   "properties": {
-                    "style": {
+                    "componentStyle": {
                       "enum": [
                         "danger",
                         "information",
@@ -152,7 +152,7 @@
                 },
                 "then": {
                   "properties": {
-                    "style": {
+                    "componentStyle": {
                       "enum": [
                         "button",
                         "checkbox",
@@ -172,7 +172,7 @@
                 },
                 "then": {
                   "properties": {
-                    "style": {
+                    "componentStyle": {
                       "enum": [
                         "multiple-lines",
                         "single-line"
@@ -246,7 +246,7 @@
                       "options",
                       "readonly",
                       "show",
-                      "style"
+                      "componentStyle"
                     ]
                   },
                   "else": {
@@ -282,7 +282,7 @@
                           "content",
                           "name",
                           "show",
-                          "style"
+                          "componentStyle"
                         ]
                       },
                       "else": {

@@ -97,7 +97,7 @@
                 "description": "If selected should clear other selections.",
                 "type": "string"
               },
-              "style": {
+              "componentStyle": {
                 "description": "define the style the current component to be implemented.",
                 "type": "string"
               },
@@ -117,7 +117,7 @@
                 },
                 "then": {
                   "properties": {
-                    "style": {
+                    "componentStyle": {
                       "enum": [
                         "button",
                         "checkbox",
@@ -247,14 +247,13 @@
                             "label",
                             "options",
                             "show",
-                            "style"
+                            "componentStyle"
                           ]
                         },
                         "else": {
                           "required": [
                             "component",
                             "name",
-                            "controlPosition",
                             "show"
                           ]
                         }
