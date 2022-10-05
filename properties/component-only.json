@@ -17,7 +17,7 @@
             "Heading",
             "FileLink",
             "Markdown",
-            "MultipleChoiceInput",
+            "MultiChoiceInput",
             "NumberInput",
             "PhotoInput",
             "SignatureInput",
@@ -84,6 +84,10 @@
     "show": {
       "description": "Should the component show or hide by default.",
       "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/show.json"
+    },
+    "showChildren": {
+      "description": "control the show or hide the children components",
+      "type": "boolean"
     },
     "specialOption": {
       "description": "If selected should clear other selections.",
@@ -185,7 +189,7 @@
     "if": {
       "properties": {
         "component": {
-          "const": "MultipleChoiceInput"
+          "const": "MultiChoiceInput"
         }
       }
     },
