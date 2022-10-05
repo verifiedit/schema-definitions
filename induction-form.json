@@ -20,19 +20,20 @@
                 "oneOf": [
                   {
                     "enum": [
-                      "AlertBanner",
                       "ChoiceInput",
-                      "Heading",
-                      "FileLink",
-                      "KmartSiteInformation",
-                      "Markdown",
+                      "FormPassed",
                       "MultiChoiceInput",
                       "NumberInput",
                       "PhotoInput",
                       "SignatureInput",
-                      "Text",
-                      "TextInput",
-                      "Viewer"
+                      "StaticAccordion",
+                      "StaticAlertBanner",
+                      "StaticHeading",
+                      "StaticFileLink",
+                      "StaticMarkdown",
+                      "StaticText",
+                      "StaticViewer",
+                      "TextInput"
                     ]
                   }
                 ]
@@ -82,8 +83,8 @@
                 "description": "Maximum length of value allowed.",
                 "type": "number"
               },
-              "name": {
-                "description": "Name of the component. This will be the key when form is submitted. Can contain alphanumeric characters, _ and - but must start with an alpha character or _, and be unique within the document.",
+              "identifier": {
+                "description": "Identifer of the component. This will be the key when form is submitted. Can contain alphanumeric characters, _ and - but must start with an alpha character or _, and be unique within the document.",
                 "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/name.json"
               },
               "options": {
@@ -129,7 +130,7 @@
                 "if": {
                   "properties": {
                     "component": {
-                      "const": "AlertBanner"
+                      "const": "StaticAlertBanner"
                     }
                   }
                 },
@@ -210,7 +211,7 @@
               "then": {
                 "required": [
                   "component",
-                  "name",
+                  "identifier",
                   "placeholder",
                   "readonly",
                   "show"
@@ -227,7 +228,7 @@
                 "then": {
                   "required": [
                     "component",
-                    "name",
+                    "identifier",
                     "label",
                     "options",
                     "readonly",
@@ -245,7 +246,7 @@
                   "then": {
                     "required": [
                       "component",
-                      "name",
+                      "identifier",
                       "label",
                       "options",
                       "readonly",
@@ -264,7 +265,7 @@
                     "then": {
                       "required": [
                         "component",
-                        "name",
+                        "identifier",
                         "content",
                         "min",
                         "max",
@@ -276,7 +277,7 @@
                       "if": {
                         "properties": {
                           "component": {
-                            "const": "Heading"
+                            "const": "StaticAccordion"
                           }
                         }
                       },
@@ -284,7 +285,7 @@
                         "required": [
                           "component",
                           "content",
-                          "name",
+                          "identifier",
                           "show",
                           "componentStyle"
                         ]
@@ -293,30 +294,31 @@
                         "if": {
                           "properties": {
                             "component": {
-                              "const": "FileLink"
+                              "const": "StaticHeading"
                             }
                           }
                         },
                         "then": {
                           "required": [
                             "component",
-                            "name",
-                            "show",
-                            "resource"
+                            "componentStyle",
+                            "content",
+                            "identifier",
+                            "show"
                           ]
                         },
                         "else": {
                           "if": {
                             "properties": {
                               "component": {
-                                "const": "Viewer"
+                                "const": "StaticFileLink"
                               }
                             }
                           },
                           "then": {
                             "required": [
                               "component",
-                              "name",
+                              "identifier",
                               "show",
                               "resource"
                             ]
@@ -325,23 +327,23 @@
                             "if": {
                               "properties": {
                                 "component": {
-                                  "const": "Text"
+                                  "const": "StaticViewer"
                                 }
                               }
                             },
                             "then": {
                               "required": [
                                 "component",
-                                "content",
-                                "name",
-                                "show"
+                                "identifier",
+                                "show",
+                                "resource"
                               ]
                             },
                             "else": {
                               "if": {
                                 "properties": {
                                   "component": {
-                                    "const": "NumberInput"
+                                    "const": "Text"
                                   }
                                 }
                               },
@@ -349,7 +351,7 @@
                                 "required": [
                                   "component",
                                   "content",
-                                  "name",
+                                  "identifier",
                                   "show"
                                 ]
                               },
@@ -357,7 +359,7 @@
                                 "if": {
                                   "properties": {
                                     "component": {
-                                      "const": "KmartSiteInformation"
+                                      "const": "NumberInput"
                                     }
                                   }
                                 },
@@ -365,8 +367,7 @@
                                   "required": [
                                     "component",
                                     "content",
-                                    "name",
-                                    "resource",
+                                    "identifier",
                                     "show"
                                   ]
                                 },
@@ -374,41 +375,74 @@
                                   "if": {
                                     "properties": {
                                       "component": {
-                                        "const": "SignatureInput"
+                                        "const": "FormPassed"
                                       }
                                     }
                                   },
                                   "then": {
                                     "required": [
+                                      "conditions",
                                       "component",
-                                      "name",
-                                      "controlPosition",
-                                      "show"
+                                      "identifier"
                                     ]
                                   },
                                   "else": {
                                     "if": {
                                       "properties": {
                                         "component": {
-                                          "const": "Markdown"
+                                          "const": "SignatureInput"
                                         }
                                       }
                                     },
                                     "then": {
                                       "required": [
                                         "component",
-                                        "content",
-                                        "name",
+                                        "identifier",
+                                        "controlPosition",
                                         "show"
                                       ]
                                     },
                                     "else": {
-                                      "required": [
-                                        "component",
-                                        "name",
-                                        "controlPosition",
-                                        "show"
-                                      ]
+                                      "if": {
+                                        "properties": {
+                                          "component": {
+                                            "const": "StaticMarkdown"
+                                          }
+                                        }
+                                      },
+                                      "then": {
+                                        "required": [
+                                          "component",
+                                          "content",
+                                          "identifier",
+                                          "show"
+                                        ]
+                                      },
+                                      "else": {
+                                        "if": {
+                                          "properties": {
+                                            "component": {
+                                              "const": "StaticText"
+                                            }
+                                          }
+                                        },
+                                        "then": {
+                                          "required": [
+                                            "component",
+                                            "content",
+                                            "identifier",
+                                            "show"
+                                          ]
+                                        },
+                                        "else": {
+                                          "required": [
+                                            "component",
+                                            "identifier",
+                                            "controlPosition",
+                                            "show"
+                                          ]
+                                        }
+                                      }
                                     }
                                   }
                                 }
