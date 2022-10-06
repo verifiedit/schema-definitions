@@ -12,18 +12,20 @@
       "oneOf": [
         {
           "enum": [
-            "AlertBanner",
             "ChoiceInput",
-            "Heading",
-            "FileLink",
-            "Markdown",
-            "MultipleChoiceInput",
+            "FormPassed",
+            "MultiChoiceInput",
             "NumberInput",
             "PhotoInput",
             "SignatureInput",
-            "Text",
-            "TextInput",
-            "Viewer"
+            "StaticAccordion",
+            "StaticAlertBanner",
+            "StaticHeading",
+            "StaticFileLink",
+            "StaticMarkdown",
+            "StaticText",
+            "StaticViewer",
+            "TextInput"
           ]
         }
       ]
@@ -61,8 +63,8 @@
       "description": "Maximum length of value allowed.",
       "type": "number"
     },
-    "name": {
-      "description": "Name of the component. This will be the key when form is submitted. Can contain alphanumeric characters, _ and - but must start with an alpha character or _, and be unique within the document.",
+    "identifier": {
+      "description": "identifer of the component. This will be the key when form is submitted. Can contain alphanumeric characters, _ and - but must start with an alpha character or _, and be unique within the document.",
       "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/name.json"
     },
     "options": {
@@ -84,6 +86,10 @@
     "show": {
       "description": "Should the component show or hide by default.",
       "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/show.json"
+    },
+    "showChildren": {
+      "description": "control the show or hide the children components",
+      "type": "boolean"
     },
     "specialOption": {
       "description": "If selected should clear other selections.",
@@ -108,13 +114,13 @@
       "if": {
         "properties": {
           "component": {
-            "const": "AlertBanner"
+            "const": "StaticAlertBanner"
           }
         }
       },
       "then": {
         "properties": {
-          "style": {
+          "componentStyle": {
             "enum": [
               "danger",
               "information",
@@ -135,7 +141,7 @@
       },
       "then": {
         "properties": {
-          "style": {
+          "componentStyle": {
             "enum": [
               "button",
               "checkbox",
@@ -155,7 +161,7 @@
       },
       "then": {
         "properties": {
-          "style": {
+          "componentStyle": {
             "enum": [
               "multiple-lines",
               "single-line"
@@ -175,7 +181,7 @@
   "then": {
     "required": [
       "component",
-      "name",
+      "identifier",
       "placeholder",
       "readonly",
       "show"
@@ -185,14 +191,14 @@
     "if": {
       "properties": {
         "component": {
-          "const": "MultipleChoiceInput"
+          "const": "MultiChoiceInput"
         }
       }
     },
     "then": {
       "required": [
         "component",
-        "name",
+        "identifier",
         "content",
         "options",
         "readonly",
@@ -210,12 +216,12 @@
       "then": {
         "required": [
           "component",
-          "name",
+          "identifier",
           "content",
           "options",
           "readonly",
           "show",
-          "style"
+          "componentStyle"
         ]
       },
       "else": {
@@ -229,7 +235,7 @@
         "then": {
           "required": [
             "component",
-            "name",
+            "identifier",
             "content",
             "min",
             "max",
@@ -241,7 +247,7 @@
           "if": {
             "properties": {
               "component": {
-                "const": "Heading"
+                "const": "StaticAccordion"
               }
             }
           },
@@ -249,23 +255,23 @@
             "required": [
               "component",
               "content",
-              "name",
+              "identifier",
               "show",
-              "style"
+              "componentStyle"
             ]
           },
           "else": {
             "if": {
               "properties": {
                 "component": {
-                  "const": "FileLink"
+                  "const": "StaticFileLink"
                 }
               }
             },
             "then": {
               "required": [
                 "component",
-                "name",
+                "identifier",
                 "show",
                 "resource"
               ]
@@ -274,14 +280,14 @@
               "if": {
                 "properties": {
                   "component": {
-                    "const": "Viewer"
+                    "const": "StaticViewer"
                   }
                 }
               },
               "then": {
                 "required": [
                   "component",
-                  "name",
+                  "identifier",
                   "show",
                   "resource"
                 ]
@@ -290,7 +296,7 @@
                 "if": {
                   "properties": {
                     "component": {
-                      "const": "Text"
+                      "const": "StaticText"
                     }
                   }
                 },
@@ -298,7 +304,7 @@
                   "required": [
                     "component",
                     "content",
-                    "name",
+                    "identifier",
                     "show"
                   ]
                 },
@@ -314,7 +320,7 @@
                     "required": [
                       "component",
                       "content",
-                      "name",
+                      "identifier",
                       "show"
                     ]
                   },
@@ -329,7 +335,7 @@
                     "then": {
                       "required": [
                         "component",
-                        "name",
+                        "identifier",
                         "controlPosition",
                         "show"
                       ]
@@ -338,7 +344,7 @@
                       "if": {
                         "properties": {
                           "component": {
-                            "const": "Markdown"
+                            "const": "StaticMarkdown"
                           }
                         }
                       },
@@ -346,17 +352,33 @@
                         "required": [
                           "component",
                           "content",
-                          "name",
+                          "identifier",
                           "show"
                         ]
                       },
                       "else": {
-                        "required": [
-                          "component",
-                          "name",
-                          "controlPosition",
-                          "show"
-                        ]
+                        "if": {
+                          "properties": {
+                            "component": {
+                              "const": "FormPassed"
+                            }
+                          }
+                        },
+                        "then": {
+                          "required": [
+                            "conditions",
+                            "component",
+                            "identifier"
+                          ]
+                        },
+                        "else": {
+                          "required": [
+                            "component",
+                            "identifier",
+                            "controlPosition",
+                            "show"
+                          ]
+                        }
                       }
                     }
                   }

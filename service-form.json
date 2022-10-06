@@ -13,18 +13,24 @@
             "properties": {
               "component": {
                 "description": "Name of component object",
-                "type": ["object", "string"],
-                "oneOf": [{
-                  "enum": [
-                    "TextInput",
-                    "MultipleChoiceInput",
-                    "TextareaInput",
-                    "CheckboxInput",
-                    "SignatureInput",
-                    "PhotoInput",
-                    "Markdown"
-                  ]
-                }]
+                "type": [
+                  "object",
+                  "string"
+                ],
+                "oneOf": [
+                  {
+                    "enum": [
+                      "CheckboxInput",
+                      "ChoiceInput",
+                      "Markdown",
+                      "MultipleChoiceInput",
+                      "PhotoInput",
+                      "SignatureInput",
+                      "TextInput",
+                      "TextareaInput"
+                    ]
+                  }
+                ]
               },
               "conditions": {
                 "description": "Define conditions which affect component.",
@@ -45,6 +51,10 @@
               "default": {
                 "description": "Default value of this component.",
                 "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/default.json"
+              },
+              "label": {
+                "description": "text string for heading, question content or caption",
+                "type": "string"
               },
               "parent": {
                 "description": "Reference to the parent component, it is a simple identity for grouping multiple components as a group.",
@@ -87,11 +97,37 @@
                 "description": "If selected should clear other selections.",
                 "type": "string"
               },
+              "componentStyle": {
+                "description": "define the style the current component to be implemented.",
+                "type": "string"
+              },
               "type": {
                 "description": "Set type for HTML form type attribute.",
                 "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/type.json"
               }
             },
+            "anyOf": [
+              {
+                "if": {
+                  "properties": {
+                    "component": {
+                      "const": "ChoiceInput"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "componentStyle": {
+                      "enum": [
+                        "button",
+                        "checkbox",
+                        "radio"
+                      ]
+                    }
+                  }
+                }
+              }
+            ],
             "if": {
               "properties": {
                 "component": {
@@ -197,12 +233,30 @@
                         ]
                       },
                       "else": {
-                        "required": [
-                          "component",
-                          "name",
-                          "controlPosition",
-                          "show"
-                        ]
+                        "if": {
+                          "properties": {
+                            "component": {
+                              "const": "ChoiceInput"
+                            }
+                          }
+                        },
+                        "then": {
+                          "required": [
+                            "component",
+                            "name",
+                            "label",
+                            "options",
+                            "show",
+                            "componentStyle"
+                          ]
+                        },
+                        "else": {
+                          "required": [
+                            "component",
+                            "name",
+                            "show"
+                          ]
+                        }
                       }
                     }
                   }
