@@ -25,7 +25,8 @@
                       "Heading",
                       "FileLink",
                       "KmartSiteInformation",
-                      "MultipleChoiceInput",
+                      "Markdown",
+                      "MultiChoiceInput",
                       "NumberInput",
                       "PhotoInput",
                       "SignatureInput",
@@ -62,6 +63,10 @@
               },
               "parent": {
                 "description": "Reference to the parent component, it is a simple identity for grouping multiple components as a group.",
+                "type": "string"
+              },
+              "label": {
+                "description": "Caption for the current object",
                 "type": "string"
               },
               "min": {
@@ -141,6 +146,26 @@
                 "if": {
                   "properties": {
                     "component": {
+                      "const": "ChoiceInput"
+                    }
+                  }
+                },
+                "then": {
+                  "properties": {
+                    "style": {
+                      "enum": [
+                        "button",
+                        "checkbox",
+                        "radio"
+                      ]
+                    }
+                  }
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "component": {
                       "const": "TextInput"
                     }
                   }
@@ -191,7 +216,7 @@
                 "if": {
                   "properties": {
                     "component": {
-                      "const": "MultipleChoiceInput"
+                      "const": "MultiChoiceInput"
                     }
                   }
                 },
@@ -199,7 +224,7 @@
                   "required": [
                     "component",
                     "name",
-                    "content",
+                    "label",
                     "options",
                     "readonly",
                     "show"
@@ -217,10 +242,11 @@
                     "required": [
                       "component",
                       "name",
-                      "content",
+                      "label",
                       "options",
                       "readonly",
-                      "show"
+                      "show",
+                      "style"
                     ]
                   },
                   "else": {
@@ -357,12 +383,29 @@
                                     ]
                                   },
                                   "else": {
-                                    "required": [
-                                      "component",
-                                      "name",
-                                      "controlPosition",
-                                      "show"
-                                    ]
+                                    "if": {
+                                      "properties": {
+                                        "component": {
+                                          "const": "Markdown"
+                                        }
+                                      }
+                                    },
+                                    "then": {
+                                      "required": [
+                                        "component",
+                                        "content",
+                                        "name",
+                                        "show"
+                                      ]
+                                    },
+                                    "else": {
+                                      "required": [
+                                        "component",
+                                        "name",
+                                        "controlPosition",
+                                        "show"
+                                      ]
+                                    }
                                   }
                                 }
                               }
