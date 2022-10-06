@@ -22,10 +22,10 @@
                     "enum": [
                       "CheckboxInput",
                       "ChoiceInput",
-                      "Markdown",
                       "MultipleChoiceInput",
                       "PhotoInput",
                       "SignatureInput",
+                      "StaticMarkdown",
                       "TextInput",
                       "TextareaInput"
                     ]
@@ -92,6 +92,10 @@
               "show": {
                 "description": "Should the component show or hide by default.",
                 "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/show.json"
+              },
+              "showChildren": {
+                "description": "control the show or hide the children components",
+                "type": "boolean"
               },
               "specialOption": {
                 "description": "If selected should clear other selections.",
@@ -201,7 +205,7 @@
                     "if": {
                       "properties": {
                         "component": {
-                          "const": "PhotoInput"
+                          "const": "StaticMarkdown"
                         }
                       }
                     },
@@ -210,9 +214,6 @@
                         "component",
                         "name",
                         "content",
-                        "min",
-                        "max",
-                        "controlPosition",
                         "show"
                       ]
                     },
@@ -220,7 +221,7 @@
                       "if": {
                         "properties": {
                           "component": {
-                            "const": "Markdown"
+                            "const": "ChoiceInput"
                           }
                         }
                       },
@@ -228,15 +229,17 @@
                         "required": [
                           "component",
                           "name",
-                          "content",
-                          "show"
+                          "label",
+                          "options",
+                          "show",
+                          "componentStyle"
                         ]
                       },
                       "else": {
                         "if": {
                           "properties": {
                             "component": {
-                              "const": "ChoiceInput"
+                              "const": "PhotoInput"
                             }
                           }
                         },
@@ -244,10 +247,11 @@
                           "required": [
                             "component",
                             "name",
-                            "label",
-                            "options",
-                            "show",
-                            "componentStyle"
+                            "content",
+                            "min",
+                            "max",
+                            "controlPosition",
+                            "show"
                           ]
                         },
                         "else": {
