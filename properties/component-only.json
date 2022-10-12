@@ -56,8 +56,8 @@
       "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/default.json"
     },
     "hidden": {
-      "description": "provide any hidden values that need to provide by backend and send back during form submission",
-      "type": "string"
+      "description": "provide any values that need to send back with the component for identifying the further process",
+      "type": "object"
     },
     "parent": {
       "description": "Reference to the parent component, it is a simple identity for grouping multiple components as a group.",
@@ -177,6 +177,20 @@
             ]
           }
         }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "async": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "hidden"
+        ]
       }
     }
   ],
