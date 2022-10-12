@@ -12,7 +12,7 @@
             "type": "object",
             "properties": {
               "async": {
-                "description": "describle the current component is a async caller or not",
+                "description": "indicates the current component is a async or not",
                 "type": "boolean"
               },
               "component": {
