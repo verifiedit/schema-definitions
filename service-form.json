@@ -22,6 +22,7 @@
                     "enum": [
                       "CheckboxInput",
                       "ChoiceInput",
+                      "HiddenInput",
                       "MultipleChoiceInput",
                       "PhotoInput",
                       "SignatureInput",
@@ -273,11 +274,28 @@
                             ]
                           },
                           "else": {
-                            "required": [
-                              "component",
-                              "name",
-                              "show"
-                            ]
+                            "if": {
+                              "properties": {
+                                "component": {
+                                  "const": "HiddenInput"
+                                }
+                              }
+                            },
+                            "then": {
+                              "required": [
+                                "component",
+                                "default",
+                                "name",
+                                "show"
+                              ]
+                            },
+                            "else": {
+                              "required": [
+                                "component",
+                                "name",
+                                "show"
+                              ]
+                            }
                           }
                         }
                       }
