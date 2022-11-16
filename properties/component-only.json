@@ -3,6 +3,10 @@
   "$schema": "http://json-schema.org/schema",
   "type": "object",
   "properties": {
+    "async": {
+      "description": "indicates the current component is a async or not",
+      "type": "boolean"
+    },
     "component": {
       "description": "Name of component object",
       "type": [
@@ -14,6 +18,7 @@
           "enum": [
             "ChoiceInput",
             "FormPassed",
+            "HiddenInput",
             "MultiChoiceInput",
             "NumberInput",
             "PhotoInput",
@@ -49,6 +54,10 @@
     "default": {
       "description": "Default value of this component.",
       "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/default.json"
+    },
+    "hidden": {
+      "description": "provide any values that need to send back with the component for identifying the further process",
+      "type": "object"
     },
     "parent": {
       "description": "Reference to the parent component, it is a simple identity for grouping multiple components as a group.",
@@ -168,6 +177,20 @@
             ]
           }
         }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "async": {
+            "const": true
+          }
+        }
+      },
+      "then": {
+        "required": [
+          "hidden"
+        ]
       }
     }
   ],
@@ -372,12 +395,28 @@
                           ]
                         },
                         "else": {
-                          "required": [
-                            "component",
-                            "identifier",
-                            "controlPosition",
-                            "show"
-                          ]
+                          "if": {
+                            "properties": {
+                              "component": {
+                                "const": "HiddenInput"
+                              }
+                            }
+                          },
+                          "then": {
+                            "required": [
+                              "component",
+                              "default",
+                              "identifier"
+                            ]
+                          },
+                          "else": {
+                            "required": [
+                              "component",
+                              "identifier",
+                              "controlPosition",
+                              "show"
+                            ]
+                          }
                         }
                       }
                     }
