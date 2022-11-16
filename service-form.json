@@ -22,12 +22,14 @@
                     "enum": [
                       "CheckboxInput",
                       "ChoiceInput",
+                      "HiddenInput",
                       "MultipleChoiceInput",
                       "PhotoInput",
                       "SignatureInput",
                       "StaticMarkdown",
                       "TextInput",
-                      "TextareaInput"
+                      "TextareaInput",
+                      "TrolleyCollectionInput"
                     ]
                   }
                 ]
@@ -255,11 +257,46 @@
                           ]
                         },
                         "else": {
-                          "required": [
-                            "component",
-                            "name",
-                            "show"
-                          ]
+                          "if": {
+                            "properties": {
+                              "component": {
+                                "const": "TrolleyCollectionInput"
+                              }
+                            }
+                          },
+                          "then": {
+                            "required": [
+                              "component",
+                              "name",
+                              "content",
+                              "rules",
+                              "show"
+                            ]
+                          },
+                          "else": {
+                            "if": {
+                              "properties": {
+                                "component": {
+                                  "const": "HiddenInput"
+                                }
+                              }
+                            },
+                            "then": {
+                              "required": [
+                                "component",
+                                "default",
+                                "name",
+                                "show"
+                              ]
+                            },
+                            "else": {
+                              "required": [
+                                "component",
+                                "name",
+                                "show"
+                              ]
+                            }
+                          }
                         }
                       }
                     }
