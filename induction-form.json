@@ -252,7 +252,6 @@
                   "required": [
                     "component",
                     "identifier",
-                    "label",
                     "options",
                     "readonly",
                     "show"
@@ -270,7 +269,6 @@
                     "required": [
                       "component",
                       "identifier",
-                      "label",
                       "options",
                       "readonly",
                       "show",
