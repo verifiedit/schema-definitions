@@ -231,7 +231,6 @@
                         "required": [
                           "component",
                           "name",
-                          "label",
                           "options",
                           "show",
                           "componentStyle"
