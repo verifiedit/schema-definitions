@@ -389,7 +389,6 @@
                                 "then": {
                                   "required": [
                                     "component",
-                                    "content",
                                     "identifier",
                                     "show"
                                   ]
