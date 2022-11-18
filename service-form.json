@@ -54,6 +54,10 @@
                 "description": "Default value of this component.",
                 "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/default.json"
               },
+              "groupedBy": {
+                "description": "Grouping of components via common named string",
+                "type": "string"
+              },
               "label": {
                 "description": "text string for heading, question content or caption",
                 "type": "string"
