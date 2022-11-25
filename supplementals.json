@@ -1,8 +1,8 @@
 {
-  "$id": "supplemental-form",
-  "$schema": "http://json-schema.org/schema",
-  "title": "Supplemental form rules property details",
-  "description": "property names to apply to the sub-form.",
+  "$id": "https://github.com/verifiedit/schema-definitions/main/supplementals",
+  "$schema": "https://json-schema.org/schema",
+  "title": "Supplemental schema",
+  "description": "Used to attach to other schemas as a related form",
   "type": "array",
   "items": {
     "type": "object",
@@ -55,7 +55,7 @@
           "schema": {
             "type": "array",
             "items": {
-              "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/component-only.json"
+              "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/component-only.json"
             }
           }
         },
