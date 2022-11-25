@@ -1,67 +1,71 @@
 {
-    "$id": "https://github.com/verifiedit/capture-validate-form-schema/properties/conditions",
-    "$schema": "http://json-schema.org/schema",
-    "title": "Form conditions property details",
-    "description": "set conditions on updating component behavior",
-    "type": ["array","object"],
-    "properties": {
-        "do": {
-            "description": "What to do when condition is satisfied.",
-            "type": "string"
-        },
-        "on": {
-            "description": "Name of component to check for condition.",
-            "type": "string"
-        },
-        "when": {
-            "description": "Value(s) of component to trigger the condition to take affect.",
-            "type": [
-                "string",
-                "array",
-                "object"
-            ]
-        }
+  "$id": "https://github.com/verifiedit/schema-definitions/properties/conditions",
+  "$schema": "https://json-schema.org/schema",
+  "title": "Conditions property",
+  "description": "Conditions which affect the behaviour of a component",
+  "type": [
+    "array",
+    "object"
+  ],
+  "properties": {
+    "do": {
+      "description": "What to do when condition is satisfied",
+      "type": "string"
     },
-    "items": {
-        "type": "object",
-        "properties": {
-            "do": {
-                "type": "string"
-            },
-            "on": {
-                "type": "string"
-            },
-            "when": {
-                "type": "array",
-                "items": {
-                    "anyOf": [{
-                            "type": "string"
-                        },
-                        {
-                            "properties": {
-                                "frequency": {
-                                    "type": "array",
-                                    "items": {
-                                        "type": "number"
-                                    }
-                                }
-                            },
-                            "type": "object"
-                        },
-                        {
-                            "type": "array"
-                        },
-                        {
-                            "type": "object"
-                        }
-                    ]
-                }
-            }
-        },
-        "required": [
-            "do",
-            "on",
-            "when"
-        ]
+    "on": {
+      "description": "Name of component in which condition is triggered",
+      "type": "string"
+    },
+    "when": {
+      "description": "Value(s) of component in 'on' property in which condition is triggered",
+      "type": [
+        "string",
+        "array",
+        "object"
+      ]
     }
+  },
+  "items": {
+    "type": "object",
+    "properties": {
+      "do": {
+        "type": "string"
+      },
+      "on": {
+        "type": "string"
+      },
+      "when": {
+        "type": "array",
+        "items": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "properties": {
+                "frequency": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              },
+              "type": "object"
+            },
+            {
+              "type": "array"
+            },
+            {
+              "type": "object"
+            }
+          ]
+        }
+      }
+    },
+    "required": [
+      "do",
+      "on",
+      "when"
+    ]
+  }
 }

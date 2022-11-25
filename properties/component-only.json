@@ -1,14 +1,14 @@
 {
-  "$id": "https://github.com/verifiedit/capture-validate-form-schema/main/component-only",
-  "$schema": "http://json-schema.org/schema",
+  "$id": "https://github.com/verifiedit/schema-definitions/main/component-only",
+  "$schema": "https://json-schema.org/schema",
   "type": "object",
   "properties": {
     "async": {
-      "description": "indicates the current component is a async or not",
+      "description": "Indicates the synchronicity of the component, true for async, false for sync",
       "type": "boolean"
     },
     "component": {
-      "description": "Name of component object",
+      "description": "Component name",
       "type": [
         "object",
         "string"
@@ -29,93 +29,90 @@
             "StaticFileLink",
             "StaticMarkdown",
             "StaticText",
-            "StaticViewer",
+            "StaticImageViewer",
+            "StaticPDFViewer",
+            "StaticVideoViewer",
             "TextInput"
           ]
         }
       ]
     },
     "conditions": {
-      "description": "Define conditions which affect component.",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/conditions.json"
+      "description": "Define conditions which affect this component",
+      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/conditions.json"
     },
     "content": {
-      "description": "Displays the instruction to the user as a question or item label.",
+      "description": "Displays instructions to the user as a question or item label",
       "type": "string"
     },
     "controlPosition": {
-      "description": "Show control button(s) at the top or on the bottom of the component.",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/control-position.json"
-    },
-    "question": {
-      "description": "Displays the label on other form reports.",
-      "type": "string"
+      "description": "Show control button(s) at the top or on the bottom of the component",
+      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/control-position.json"
     },
     "default": {
-      "description": "Default value of this component.",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/default.json"
+      "description": "Default value of this component",
+      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/default.json"
     },
     "hidden": {
-      "description": "provide any values that need to send back with the component for identifying the further process",
+      "description": "Provide a hidden form value to be returned with the other form data",
       "type": "object"
     },
-    "parent": {
-      "description": "Reference to the parent component, it is a simple identity for grouping multiple components as a group.",
-      "type": "string"
+    "identifier": {
+      "description": "Component identifier, can contain alphanumeric characters, _ and - but must start with an alpha character or _, and be unique within the schema",
+      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/identifier.json"
+    },
+    "max": {
+      "description": "Maximum length of value allowed",
+      "type": "number"
     },
     "min": {
-      "description": "Minimum length of value allowed.",
+      "description": "Minimum length of value allowed",
       "type": "number",
       "minimum": 0
     },
-    "max": {
-      "description": "Maximum length of value allowed.",
-      "type": "number"
-    },
-    "identifier": {
-      "description": "identifer of the component. This will be the key when form is submitted. Can contain alphanumeric characters, _ and - but must start with an alpha character or _, and be unique within the document.",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/name.json"
-    },
     "options": {
-      "description": "List the items that the user can select from.",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/options.json"
+      "description": "List of selectable items",
+      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/options.json"
+    },
+    "parent": {
+      "description": "Reference to the parent component, used to group multiple components",
+      "type": "string"
     },
     "placeholder": {
-      "description": "Placeholder string for HTML input.",
+      "description": "Placeholder label",
+      "type": "string"
+    },
+    "question": {
+      "description": "The components question",
       "type": "string"
     },
     "readonly": {
-      "description": "Is component read only?",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/readonly.json"
+      "description": "Make the component readonly",
+      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/readonly.json"
+    },
+    "resource": {
+      "description": "A resource identifier such as a URL, filename, or callback to retrieve the associated resource",
+      "type": "string"
     },
     "rules": {
-      "description": "Validation rules to apply to the component value. These are required to be valid javascript expressions written as a string.",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/rules.json"
+      "description": "Validation rules to apply to the component value, required to be valid javascript expressions written as a string",
+      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/rules.json"
     },
     "show": {
-      "description": "Should the component show or hide by default.",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/capture-validate-form-schema/main/properties/show.json"
+      "description": "Determines if the component will be visible or not",
+      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/show.json"
     },
     "showChildren": {
-      "description": "control the show or hide the children components",
+      "description": "Whether to show or hide children components",
       "type": "boolean"
     },
     "specialOption": {
-      "description": "If selected should clear other selections.",
+      "description": "Determines if the option selected should remove all other options previously selected",
       "type": "string"
     },
     "type": {
-      "description": "If selected should clear other selections.",
-      "type": "string",
-      "enum": [
-        "number",
-        "tel",
-        "text"
-      ]
-    },
-    "resource": {
-      "description": "Can be the file path or base64 object string.",
-      "type": "string"
+      "description": "The type of data the component should expect",
+      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/type.json"
     }
   },
   "anyOf": [
@@ -303,7 +300,7 @@
               "if": {
                 "properties": {
                   "component": {
-                    "const": "StaticViewer"
+                    "const": "StaticImageViewer"
                   }
                 }
               },
@@ -319,47 +316,47 @@
                 "if": {
                   "properties": {
                     "component": {
-                      "const": "StaticText"
+                      "const": "StaticPDFViewer"
                     }
                   }
                 },
                 "then": {
                   "required": [
                     "component",
-                    "content",
                     "identifier",
-                    "show"
+                    "show",
+                    "resource"
                   ]
                 },
                 "else": {
                   "if": {
                     "properties": {
                       "component": {
-                        "const": "NumberInput"
+                        "const": "StaticVideoViewer"
                       }
                     }
                   },
                   "then": {
                     "required": [
                       "component",
-                      "content",
                       "identifier",
-                      "show"
+                      "show",
+                      "resource"
                     ]
                   },
                   "else": {
                     "if": {
                       "properties": {
                         "component": {
-                          "const": "SignatureInput"
+                          "const": "StaticText"
                         }
                       }
                     },
                     "then": {
                       "required": [
                         "component",
+                        "content",
                         "identifier",
-                        "controlPosition",
                         "show"
                       ]
                     },
@@ -367,7 +364,7 @@
                       "if": {
                         "properties": {
                           "component": {
-                            "const": "StaticMarkdown"
+                            "const": "NumberInput"
                           }
                         }
                       },
@@ -383,39 +380,73 @@
                         "if": {
                           "properties": {
                             "component": {
-                              "const": "FormPassed"
+                              "const": "SignatureInput"
                             }
                           }
                         },
                         "then": {
                           "required": [
-                            "conditions",
                             "component",
-                            "identifier"
+                            "identifier",
+                            "controlPosition",
+                            "show"
                           ]
                         },
                         "else": {
                           "if": {
                             "properties": {
                               "component": {
-                                "const": "HiddenInput"
+                                "const": "StaticMarkdown"
                               }
                             }
                           },
                           "then": {
                             "required": [
                               "component",
-                              "default",
-                              "identifier"
+                              "content",
+                              "identifier",
+                              "show"
                             ]
                           },
                           "else": {
-                            "required": [
-                              "component",
-                              "identifier",
-                              "controlPosition",
-                              "show"
-                            ]
+                            "if": {
+                              "properties": {
+                                "component": {
+                                  "const": "FormPassed"
+                                }
+                              }
+                            },
+                            "then": {
+                              "required": [
+                                "conditions",
+                                "component",
+                                "identifier"
+                              ]
+                            },
+                            "else": {
+                              "if": {
+                                "properties": {
+                                  "component": {
+                                    "const": "HiddenInput"
+                                  }
+                                }
+                              },
+                              "then": {
+                                "required": [
+                                  "component",
+                                  "default",
+                                  "identifier"
+                                ]
+                              },
+                              "else": {
+                                "required": [
+                                  "component",
+                                  "identifier",
+                                  "controlPosition",
+                                  "show"
+                                ]
+                              }
+                            }
                           }
                         }
                       }

@@ -1,17 +1,17 @@
 {
-    "$id": "https://github.com/verifiedit/capture-validate-form-schema/properties/control-position",
-    "$schema": "http://json-schema.org/schema",
-    "title": "Form controlPosition property details",
-    "description": "Show control button(s) at the top or on the bottom of the component.",
-    "type": "string",
-    "enum": [
-        "top",
-        "bottom",
-        "left",
-        "right",
-        "top-left",
-        "top-right",
-        "bottom-left",
-        "bottom-right"
-    ]
+  "$id": "https://github.com/verifiedit/schema-definitions/properties/control-position",
+  "$schema": "https://json-schema.org/schema",
+  "title": "Control position placement property",
+  "description": "Where to place control elements of component",
+  "type": "string",
+  "enum": [
+    "top",
+    "bottom",
+    "left",
+    "right",
+    "top-left",
+    "top-right",
+    "bottom-left",
+    "bottom-right"
+  ]
 }

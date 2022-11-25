@@ -1,0 +1,8 @@
+{
+  "$id": "https://github.com/verifiedit/schema-definitions/properties/identifier",
+  "$schema": "https://json-schema.org/schema",
+  "title": "Identifier property",
+  "type": "string",
+  "description": "Component identifier, can contain alphanumeric characters, _ and - but must start with an alpha character or _, and be unique within the schema",
+  "pattern": "^[A-Za-z_][A-z0-9_-]*$"
+}
