@@ -119,8 +119,12 @@
                 "type": "boolean"
               },
               "supplementals": {
+                "additionalProperties": false,
                 "description": "Define any supplementary forms related to this induction",
-                "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/supplementals.json"
+                "type": "array",
+                "items": {
+                  "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/supplementals.json"
+                }
               },
               "specialOption": {
                 "description": "Determines if the option selected should remove all other options previously selected",

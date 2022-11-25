@@ -3,82 +3,78 @@
   "$schema": "https://json-schema.org/schema",
   "title": "Supplemental schema",
   "description": "Used to attach to other schemas as a related form",
-  "type": "array",
-  "items": {
-    "type": "object",
-    "properties": {
-      "$schema": {
-        "type": "string"
-      },
-      "after": {
-        "type": "string",
-        "enum": [
-          "AfterInductionSupplemental",
-          "AfterNoticeSupplemental",
-          "AfterServiceSupplemental",
-          "AfterWorkOrderSupplemental"
-        ]
-      },
-      "conditions": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "do": {
-              "type": "string"
-            },
-            "on": {
-              "type": "string"
-            },
-            "when": {
-              "type": "array"
-            }
-          },
-          "required": [
-            "do",
-            "on",
-            "when"
-          ]
-        }
-      },
-      "data": {
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "after": {
+      "type": "string",
+      "enum": [
+        "AfterInductionSupplemental",
+        "AfterNoticeSupplemental",
+        "AfterServiceSupplemental",
+        "AfterWorkOrderSupplemental"
+      ]
+    },
+    "conditions": {
+      "type": "array",
+      "items": {
         "type": "object",
-        "items": {
-          "type": "array",
-          "properties": {
-            "schema": {
-              "type": "array"
-            }
-          }
-        },
         "properties": {
-          "schema": {
-            "type": "array",
-            "items": {
-              "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/component-only.json"
-            }
+          "do": {
+            "type": "string"
+          },
+          "on": {
+            "type": "string"
+          },
+          "when": {
+            "type": "array"
           }
         },
         "required": [
-          "schema"
+          "do",
+          "on",
+          "when"
         ]
-      },
-      "name": {
-        "type": "string"
-      },
-      "show": {
-        "type": "boolean"
-      },
-      "title": {
-        "type": "string"
       }
     },
-    "required": [
-      "$schema",
-      "after",
-      "data",
-      "title"
-    ]
+    "data": {
+      "type": "object",
+      "items": {
+        "type": "array",
+        "properties": {
+          "schema": {
+            "type": "array"
+          }
+        }
+      },
+      "properties": {
+        "schema": {
+          "type": "array",
+          "items": {
+            "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/component-only.json"
+          }
+        }
+      },
+      "required": [
+        "schema"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "show": {
+      "type": "boolean"
+    },
+    "title": {
+      "type": "string"
+    }
   },
-  "additionalProperties": false
+  "required": [
+    "$schema",
+    "after",
+    "data",
+    "title"
+  ]
 }
