@@ -10,7 +10,7 @@ Example
 
 ```
 {
-    "$schema": "https://raw.githubusercontent.com/verifiedit/verified-schema-definitions/main/services.json",
+    "$schema": "http://raw.githubusercontent.com/verifiedit/verified-schema-definitions/main/services.json",
     "data": {
         "schema": [],
     }

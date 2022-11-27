@@ -1,6 +1,6 @@
 {
-    "$id": "https://github.com/verifiedit/schema-definitions/properties/type",
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "http://github.com/verifiedit/schema-definitions/properties/type",
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
     "title": "Component type",
     "description": "The type of data the component should expect",
     "type": "string",

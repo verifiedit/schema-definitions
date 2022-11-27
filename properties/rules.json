@@ -1,6 +1,6 @@
 {
-  "$id": "https://github.com/verifiedit/schema-definitions/properties/rules",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://github.com/verifiedit/schema-definitions/properties/rules",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "title": "Rules property",
   "description": "Validation rules to apply to the component value, required to be valid javascript expressions written as a string",
   "type": "array",

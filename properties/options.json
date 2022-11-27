@@ -1,6 +1,6 @@
 {
-  "$id": "https://github.com/verifiedit/schema-definitions/properties/options",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://github.com/verifiedit/schema-definitions/properties/options",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "title": "Options property",
   "description": "List of selectable items",
   "type": "array",
@@ -35,7 +35,7 @@
       },
       "conditions": {
         "description": "Define conditions which affect the current option.",
-        "$ref": "https://github.com/verifiedit/schema-definitions/properties/conditions.json"
+        "$ref": "http://github.com/verifiedit/schema-definitions/properties/conditions.json"
       }
     }
   },

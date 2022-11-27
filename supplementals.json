@@ -1,6 +1,6 @@
 {
-  "$id": "https://github.com/verifiedit/schema-definitions/main/supplementals",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://github.com/verifiedit/schema-definitions/blob/main/supplementals.json",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "title": "Supplemental schema",
   "description": "Used to attach to other schemas as a related form",
   "type": "object",
@@ -53,7 +53,7 @@
         "schema": {
           "type": "array",
           "items": {
-            "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/component-only.json"
+            "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/component-only.json"
           }
         }
       },

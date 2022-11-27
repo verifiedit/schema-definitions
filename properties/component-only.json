@@ -1,6 +1,6 @@
 {
-  "$id": "https://github.com/verifiedit/schema-definitions/main/component-only",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://github.com/verifiedit/schema-definitions/main/component-only",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "type": "object",
   "properties": {
     "async": {
@@ -39,7 +39,7 @@
     },
     "conditions": {
       "description": "Define conditions which affect this component",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/conditions.json"
+      "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/conditions.json"
     },
     "content": {
       "description": "Displays instructions to the user as a question or item label",
@@ -47,11 +47,11 @@
     },
     "controlPosition": {
       "description": "Show control button(s) at the top or on the bottom of the component",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/control-position.json"
+      "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/control-position.json"
     },
     "default": {
       "description": "Default value of this component",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/default.json"
+      "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/default.json"
     },
     "hidden": {
       "description": "Provide a hidden form value to be returned with the other form data",
@@ -59,7 +59,7 @@
     },
     "identifier": {
       "description": "Component identifier, can contain alphanumeric characters, _ and - but must start with an alpha character or _, and be unique within the schema",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/identifier.json"
+      "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/identifier.json"
     },
     "max": {
       "description": "Maximum length of value allowed",
@@ -72,7 +72,7 @@
     },
     "options": {
       "description": "List of selectable items",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/options.json"
+      "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/options.json"
     },
     "parent": {
       "description": "Reference to the parent component, used to group multiple components",
@@ -88,7 +88,7 @@
     },
     "readonly": {
       "description": "Make the component readonly",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/readonly.json"
+      "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/readonly.json"
     },
     "resource": {
       "description": "A resource identifier such as a URL, filename, or callback to retrieve the associated resource",
@@ -96,11 +96,11 @@
     },
     "rules": {
       "description": "Validation rules to apply to the component value, required to be valid javascript expressions written as a string",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/rules.json"
+      "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/rules.json"
     },
     "show": {
       "description": "Determines if the component will be visible or not",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/show.json"
+      "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/show.json"
     },
     "showChildren": {
       "description": "Whether to show or hide children components",
@@ -112,7 +112,7 @@
     },
     "type": {
       "description": "The type of data the component should expect",
-      "$ref": "https://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/type.json"
+      "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/type.json"
     }
   },
   "anyOf": [

@@ -1,6 +1,6 @@
 {
-  "$id": "https://github.com/verifiedit/schema-definitions/properties/conditions",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://github.com/verifiedit/schema-definitions/properties/conditions",
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
   "title": "Conditions property",
   "description": "Conditions which affect the behaviour of a component",
   "type": [
