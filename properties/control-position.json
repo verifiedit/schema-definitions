@@ -1,6 +1,6 @@
 {
   "$id": "https://github.com/verifiedit/schema-definitions/properties/control-position",
-  "$schema": "https://json-schema.org/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Control position placement property",
   "description": "Where to place control elements of component",
   "type": "string",

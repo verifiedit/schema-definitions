@@ -1,6 +1,6 @@
 {
   "$id": "https://github.com/verifiedit/schema-definitions/properties/show",
-  "$schema": "https://json-schema.org/schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "Show property",
   "description": "Determines if the component will be visible or not",
   "type": "boolean",
