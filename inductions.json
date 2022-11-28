@@ -270,12 +270,12 @@
                   "then": {
                     "required": [
                       "component",
+                      "componentStyle",
+                      "content",
                       "identifier",
-                      "label",
                       "options",
                       "readonly",
-                      "show",
-                      "componentStyle"
+                      "show"
                     ]
                   },
                   "else": {
