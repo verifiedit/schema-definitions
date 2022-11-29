@@ -37,11 +37,10 @@
         "description": "Define conditions which affect the current option.",
         "$ref": "http://github.com/verifiedit/schema-definitions/properties/conditions.json"
       }
-    }
-  },
-  "required": [
-    "colour",
-    "label",
-    "value"
-  ]
+    },
+    "required": [
+      "label",
+      "value"
+    ]
+  }
 }
