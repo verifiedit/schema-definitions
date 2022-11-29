@@ -45,6 +45,10 @@
                   }
                 ]
               },
+              "componentStyle": {
+                "description": "Define the style of the component input button.",
+                "type": "string"
+              },
               "conditions": {
                 "description": "Define conditions which affect this component",
                 "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/conditions.json"
