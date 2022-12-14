@@ -1,0 +1,16 @@
+{
+    "$id": "http://github.com/verifiedit/schema-definitions/properties/type",
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "title": "Keyboard",
+    "description": "The keyboard mode to use with the component.",
+    "type": "string",
+    "enum": [
+        "decimal",
+        "email",
+        "numeric",
+        "search",
+        "tel",
+        "text",
+        "url"
+    ]
+}

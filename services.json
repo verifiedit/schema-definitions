@@ -59,6 +59,10 @@
                 "description": "Grouping of components via commonly named identifier",
                 "type": "string"
               },
+              "keyboard": {
+                "description": "Keyboard to use on component at runtime",
+                "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/keyboard.json"
+              },
               "label": {
                 "description": "The label for the component",
                 "type": "string"
