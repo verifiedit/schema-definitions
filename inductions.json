@@ -179,6 +179,7 @@
                       "enum": [
                         "button",
                         "checkbox",
+                        "dropdown",
                         "radio"
                       ]
                     }
