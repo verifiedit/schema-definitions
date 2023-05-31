@@ -64,6 +64,10 @@
     "name": {
       "type": "string"
     },
+    "reportable": {
+      "description": "Whether current object can show on report",
+      "type": "boolean"
+    },
     "show": {
       "type": "boolean"
     },
