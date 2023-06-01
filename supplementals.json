@@ -64,9 +64,9 @@
     "name": {
       "type": "string"
     },
-    "reportable": {
-      "description": "Whether current object can show on report",
-      "type": "boolean"
+    "reportKey": {
+      "description": "A string to be used as a report identifier for this component. Mainly for use with CSV exports to match column headers to data",
+      "type": "string"
     },
     "show": {
       "type": "boolean"
