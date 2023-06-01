@@ -110,6 +110,10 @@
                 "description": "Make the component readonly",
                 "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/readonly.json"
               },
+              "reportKey": {
+                "description": "A string to be used as a report identifier for this component. Mainly for use with CSV exports to match column headers to data. If omitted, component is not reported.",
+                "type": "string"
+              },
               "resource": {
                 "type": "string",
                 "description": "A resource identifier such as a URL, filename, or callback to retrieve the associated resource"

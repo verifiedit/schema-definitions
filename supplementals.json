@@ -64,6 +64,10 @@
     "name": {
       "type": "string"
     },
+    "reportKey": {
+      "description": "A string to be used as a report identifier for this component. Mainly for use with CSV exports to match column headers to data. If omitted, component is not reported.",
+      "type": "string"
+    },
     "show": {
       "type": "boolean"
     },
