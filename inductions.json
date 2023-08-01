@@ -529,7 +529,6 @@
                                                 "then": {
                                                   "required": [
                                                     "component",
-                                                    "default",
                                                     "identifier",
                                                     "label",
                                                     "rules"
