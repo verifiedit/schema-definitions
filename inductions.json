@@ -24,6 +24,7 @@
                 "oneOf": [
                   {
                     "enum": [
+                      "CheckInput",
                       "ChoiceInput",
                       "FormPassed",
                       "HiddenInput",
@@ -518,11 +519,28 @@
                                                 ]
                                               },
                                               "else": {
-                                                "required": [
-                                                  "component",
-                                                  "identifier",
-                                                  "show"
-                                                ]
+                                                "if": {
+                                                  "properties": {
+                                                    "component": {
+                                                      "const": "CheckInput"
+                                                    }
+                                                  }
+                                                },
+                                                "then": {
+                                                  "required": [
+                                                    "component",
+                                                    "identifier",
+                                                    "label",
+                                                    "rules"
+                                                  ]
+                                                },
+                                                "else": {
+                                                  "required": [
+                                                    "component",
+                                                    "identifier",
+                                                    "show"
+                                                  ]
+                                                }
                                               }
                                             }
                                           }
