@@ -15,6 +15,10 @@
                 "description": "Indicates the synchronicity of the component, true for async, false for sync",
                 "type": "boolean"
               },
+              "capture": {
+                "description": "Indicates the capture mode of an input component",
+                "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/capture.json"
+              },
               "component": {
                 "description": "Component name",
                 "type": [
