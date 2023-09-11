@@ -1,0 +1,11 @@
+{
+    "$id": "http://github.com/verifiedit/schema-definitions/properties/capture",
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "title": "Capture",
+    "description": "The capture mode of an input element.",
+    "type": "string",
+    "enum": [
+        "user",
+        "environment"
+    ]
+}
