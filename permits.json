@@ -73,6 +73,10 @@
                 "description": "Enable time picker",
                 "type": "boolean"
               },
+              "endDateTooltip": {
+                "description": "Provide a tooltip for the end date in a DateRangeInput",
+                "type": "string"
+              },
               "hidden": {
                 "description": "Provide a hidden form value to be returned with the other form data",
                 "type": "object"
@@ -144,6 +148,14 @@
               },
               "specialOption": {
                 "description": "Determines if the option selected should remove all other options previously selected",
+                "type": "string"
+              },
+              "startDateTooltip": {
+                "description": "Provide a tooltip for the start date in a DateRangeInput",
+                "type": "string"
+              },
+              "tooltip": {
+                "description": "Provide a tooltip for the component",
                 "type": "string"
               },
               "type": {
