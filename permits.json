@@ -27,6 +27,7 @@
                       "CheckInput",
                       "CheckboxInput",
                       "ChoiceInput",
+                      "DateRangeInput",
                       "FormPassed",
                       "HiddenInput",
                       "MultiChoiceInput",
@@ -67,6 +68,14 @@
               "default": {
                 "description": "Default value of this component",
                 "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/default.json"
+              },
+              "enableTimePicker" : {
+                "description": "Enable time picker",
+                "type": "boolean"
+              },
+              "endDateTooltip": {
+                "description": "Provide a tooltip for the end date in a DateRangeInput",
+                "type": "string"
               },
               "hidden": {
                 "description": "Provide a hidden form value to be returned with the other form data",
@@ -141,9 +150,26 @@
                 "description": "Determines if the option selected should remove all other options previously selected",
                 "type": "string"
               },
+              "startDateTooltip": {
+                "description": "Provide a tooltip for the start date in a DateRangeInput",
+                "type": "string"
+              },
+              "tooltip": {
+                "description": "Provide a tooltip for the component",
+                "type": "string"
+              },
               "type": {
                 "description": "The type of data the component should expect",
                 "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/type.json"
+              },
+              "yearRange": {
+                "description": "The range of years the component should expect",
+                "type": "array",
+                "maxItems": 2,
+                "minItems": 2,
+                "items": {
+                  "type": "number"
+                }
               }
             },
             "anyOf": [
