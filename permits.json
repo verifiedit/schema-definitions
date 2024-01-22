@@ -28,6 +28,7 @@
                       "CheckboxInput",
                       "ChoiceInput",
                       "DateRangeInput",
+                      "EventTrigger",
                       "FormPassed",
                       "HiddenInput",
                       "MultiChoiceInput",
@@ -69,13 +70,27 @@
                 "description": "Default value of this component",
                 "$ref": "http://raw.githubusercontent.com/verifiedit/schema-definitions/main/properties/default.json"
               },
-              "enableTimePicker" : {
+              "enableTimePicker": {
                 "description": "Enable time picker",
                 "type": "boolean"
               },
               "endDateTooltip": {
                 "description": "Provide a tooltip for the end date in a DateRangeInput",
                 "type": "string"
+              },
+              "event": {
+                "description": "Name of event to trigger if conditions are met",
+                "type": "string",
+                "enum": [
+                  "HotWorkPermitSubmittedEvent",
+                  "ConfinedSpacePermitSubmittedEvent",
+                  "WorkingAtHeightsPermitSubmittedEvent",
+                  "WorkingOvernightPermitSubmittedEvent",
+                  "EnergyIsolationPermitSubmittedEvent",
+                  "RoofCeilingAccessPermitSubmittedEvent",
+                  "FireSafetySystemsPermitSubmittedEvent",
+                  "AsbestosPermitSubmittedEvent"
+                ]
               },
               "hidden": {
                 "description": "Provide a hidden form value to be returned with the other form data",
@@ -320,18 +335,15 @@
                     "if": {
                       "properties": {
                         "component": {
-                          "const": "PhotoInput"
+                          "const": "EventTrigger"
                         }
                       }
                     },
                     "then": {
                       "required": [
                         "component",
+                        "event",
                         "identifier",
-                        "content",
-                        "min",
-                        "max",
-                        "controlPosition",
                         "show"
                       ]
                     },
@@ -339,57 +351,60 @@
                       "if": {
                         "properties": {
                           "component": {
-                            "const": "StaticAccordion"
+                            "const": "PhotoInput"
                           }
                         }
                       },
                       "then": {
                         "required": [
                           "component",
-                          "content",
                           "identifier",
-                          "show",
-                          "componentStyle"
+                          "content",
+                          "min",
+                          "max",
+                          "controlPosition",
+                          "show"
                         ]
                       },
                       "else": {
                         "if": {
                           "properties": {
                             "component": {
-                              "const": "StaticHeading"
+                              "const": "StaticAccordion"
                             }
                           }
                         },
                         "then": {
                           "required": [
                             "component",
-                            "componentStyle",
                             "content",
                             "identifier",
-                            "show"
+                            "show",
+                            "componentStyle"
                           ]
                         },
                         "else": {
                           "if": {
                             "properties": {
                               "component": {
-                                "const": "StaticFileLink"
+                                "const": "StaticHeading"
                               }
                             }
                           },
                           "then": {
                             "required": [
                               "component",
+                              "componentStyle",
+                              "content",
                               "identifier",
-                              "show",
-                              "resource"
+                              "show"
                             ]
                           },
                           "else": {
                             "if": {
                               "properties": {
                                 "component": {
-                                  "const": "StaticImageViewer"
+                                  "const": "StaticFileLink"
                                 }
                               }
                             },
@@ -405,7 +420,7 @@
                               "if": {
                                 "properties": {
                                   "component": {
-                                    "const": "StaticPDFViewer"
+                                    "const": "StaticImageViewer"
                                   }
                                 }
                               },
@@ -421,7 +436,7 @@
                                 "if": {
                                   "properties": {
                                     "component": {
-                                      "const": "StaticVideoViewer"
+                                      "const": "StaticPDFViewer"
                                     }
                                   }
                                 },
@@ -437,29 +452,30 @@
                                   "if": {
                                     "properties": {
                                       "component": {
-                                        "const": "Text"
+                                        "const": "StaticVideoViewer"
                                       }
                                     }
                                   },
                                   "then": {
                                     "required": [
                                       "component",
-                                      "content",
                                       "identifier",
-                                      "show"
+                                      "show",
+                                      "resource"
                                     ]
                                   },
                                   "else": {
                                     "if": {
                                       "properties": {
                                         "component": {
-                                          "const": "NumberInput"
+                                          "const": "Text"
                                         }
                                       }
                                     },
                                     "then": {
                                       "required": [
                                         "component",
+                                        "content",
                                         "identifier",
                                         "show"
                                       ]
@@ -468,46 +484,45 @@
                                       "if": {
                                         "properties": {
                                           "component": {
-                                            "const": "FormPassed"
+                                            "const": "NumberInput"
                                           }
                                         }
                                       },
                                       "then": {
                                         "required": [
-                                          "conditions",
                                           "component",
-                                          "identifier"
+                                          "identifier",
+                                          "show"
                                         ]
                                       },
                                       "else": {
                                         "if": {
                                           "properties": {
                                             "component": {
-                                              "const": "SignatureInput"
+                                              "const": "FormPassed"
                                             }
                                           }
                                         },
                                         "then": {
                                           "required": [
+                                            "conditions",
                                             "component",
-                                            "identifier",
-                                            "controlPosition",
-                                            "show"
+                                            "identifier"
                                           ]
                                         },
                                         "else": {
                                           "if": {
                                             "properties": {
                                               "component": {
-                                                "const": "StaticMarkdown"
+                                                "const": "SignatureInput"
                                               }
                                             }
                                           },
                                           "then": {
                                             "required": [
                                               "component",
-                                              "content",
                                               "identifier",
+                                              "controlPosition",
                                               "show"
                                             ]
                                           },
@@ -515,7 +530,7 @@
                                             "if": {
                                               "properties": {
                                                 "component": {
-                                                  "const": "StaticText"
+                                                  "const": "StaticMarkdown"
                                                 }
                                               }
                                             },
@@ -531,23 +546,40 @@
                                               "if": {
                                                 "properties": {
                                                   "component": {
-                                                    "const": "HiddenInput"
+                                                    "const": "StaticText"
                                                   }
                                                 }
                                               },
                                               "then": {
                                                 "required": [
                                                   "component",
-                                                  "default",
-                                                  "identifier"
-                                                ]
-                                              },
-                                              "else": {
-                                                "required": [
-                                                  "component",
+                                                  "content",
                                                   "identifier",
                                                   "show"
                                                 ]
+                                              },
+                                              "else": {
+                                                "if": {
+                                                  "properties": {
+                                                    "component": {
+                                                      "const": "HiddenInput"
+                                                    }
+                                                  }
+                                                },
+                                                "then": {
+                                                  "required": [
+                                                    "component",
+                                                    "default",
+                                                    "identifier"
+                                                  ]
+                                                },
+                                                "else": {
+                                                  "required": [
+                                                    "component",
+                                                    "identifier",
+                                                    "show"
+                                                  ]
+                                                }
                                               }
                                             }
                                           }
