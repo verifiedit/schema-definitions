@@ -25,12 +25,14 @@
                       "HiddenInput",
                       "MultipleChoiceInput",
                       "PhotoInput",
+                      "NumberInput",
                       "SignatureInput",
                       "StaticMarkdown",
                       "TextInput",
                       "TextareaInput",
                       "TrolleyCollectionInput",
-                      "ValidationInput"
+                      "ValidationInput",
+                      "StaticAccordion"
                     ]
                   }
                 ]
@@ -158,11 +160,8 @@
             "then": {
               "required": [
                 "component",
-                "name",
                 "placeholder",
-                "readonly",
-                "show",
-                "type"
+                "show"
               ]
             },
             "else": {
@@ -228,7 +227,6 @@
                     "then": {
                       "required": [
                         "component",
-                        "name",
                         "content",
                         "show"
                       ]
@@ -244,11 +242,9 @@
                       "then": {
                         "required": [
                           "component",
-                          "name",
-                          "label",
+                          "content",
                           "options",
-                          "show",
-                          "componentStyle"
+                          "show"
                         ]
                       },
                       "else": {
@@ -299,7 +295,7 @@
                               "required": [
                                 "component",
                                 "default",
-                                "name",
+                                "identifier",
                                 "show"
                               ]
                             },
@@ -324,7 +320,7 @@
                               "else": {
                                 "required": [
                                   "component",
-                                  "name",
+                                  "identifier",
                                   "show"
                                 ]
                               }
