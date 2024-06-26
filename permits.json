@@ -82,14 +82,14 @@
                 "description": "Name of event to trigger if conditions are met",
                 "type": "string",
                 "enum": [
-                  "HotWorkPermitSubmittedEvent",
-                  "ConfinedSpacePermitSubmittedEvent",
-                  "WorkingAtHeightsPermitSubmittedEvent",
-                  "WorkingOvernightPermitSubmittedEvent",
-                  "EnergyIsolationPermitSubmittedEvent",
-                  "RoofCeilingAccessPermitSubmittedEvent",
-                  "FireSafetySystemsPermitSubmittedEvent",
-                  "AsbestosPermitSubmittedEvent"
+                  "HotWorkPermitSubmittedForApprovalEvent",
+                  "ConfinedSpacePermitSubmittedForApprovalEvent",
+                  "WorkingAtHeightsPermitSubmittedForApprovalEvent",
+                  "WorkingOvernightPermitSubmittedForApprovalEvent",
+                  "EnergyIsolationPermitSubmittedForApprovalEvent",
+                  "RoofCeilingAccessPermitSubmittedForApprovalEvent",
+                  "FireSafetySystemsPermitSubmittedForApprovalEvent",
+                  "AsbestosPermitSubmittedForApprovalEvent"
                 ]
               },
               "hidden": {
