@@ -21,6 +21,7 @@
                   {
                     "enum": [
                       "CheckboxInput",
+                      "CheckInput",
                       "ChoiceInput",
                       "HiddenInput",
                       "MultipleChoiceInput",
@@ -28,6 +29,7 @@
                       "NumberInput",
                       "SignatureInput",
                       "StaticMarkdown",
+                      "StaticText",
                       "TextInput",
                       "TextareaInput",
                       "TrolleyCollectionInput",
